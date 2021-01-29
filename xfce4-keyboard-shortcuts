@@ -1,0 +1,26 @@
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>e --create -t string -s thunar
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>g --create -t string -s chromium
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>h --create -t string -s 'chromium --incognito'
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>i --create -t string -s xfce4-settings-manager
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>m --create -t string -s clementine
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>p --create -t string -s 'xfce4-display-settings --minimal'
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>r --create -t string -s 'xfce4-appfinder -c'
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>r/startup-notify --create -t string -s true
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>space --create -t string -s xfce4-popup-whiskermenu
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>t --create -t string -s xfce4-terminal
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/\<Super\>v --create -t string -s gvim
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>d --create -t string -s show_desktop_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>Down --create -t string -s tile_down_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_Add --create -t string -s maximize_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_End --create -t string -s tile_down_left_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_Home --create -t string -s tile_up_left_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_Next --create -t string -s tile_down_right_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_Page_Up --create -t string -s tile_up_right_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>KP_Subtract --create -t string -s hide_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>Left --create -t string -s tile_left_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>Right --create -t string -s tile_right_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>Tab --create -t string -s switch_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Super\>Up --create -t string -s tile_up_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>m --create -t string -s move_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>Left --create -t string -s left_workspace_key
+xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>Right --create -t string -s right_workspace_key
