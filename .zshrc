@@ -29,6 +29,8 @@ export PATH="/usr/lib/ccache/bin/:$PATH"
 export MAKEFLAGS="-j13 -l12"
 export HOSTNAME=$(print -P %m)
 export USERNAME
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export EXA_COLORS='uu=35'
 
 # Load custom configurations
 for config_file ($ZSH/*.zsh(N)) {

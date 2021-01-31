@@ -5,7 +5,7 @@ MiscBellUrgent=FALSE
 MiscBordersDefault=TRUE
 MiscCursorBlinks=FALSE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_UNDERLINE
-MiscDefaultGeometry=120x36
+MiscDefaultGeometry=110x40
 MiscInheritGeometry=FALSE
 MiscMenubarDefault=FALSE
 MiscMouseAutohide=FALSE
@@ -32,4 +32,5 @@ ColorPalette=#000000;#cc0000;#4e9a06;#c4a000;#3465a4;#75507b;#06989a;#d3d7cf;#55
 ColorForeground=#cfcfcfcfcfcf
 ColorBackground=#01000e0d1717
 BackgroundDarkness=1.000000
+ScrollingBar=TERMINAL_SCROLLBAR_NONE
 
