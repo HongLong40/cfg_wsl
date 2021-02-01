@@ -1,0 +1,26 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "content-script.js" ],
+      "matches": [ "https://*/*" ]
+   } ],
+   "description": "Chrome extension for the Belgium eID card",
+   "icons": {
+      "128": "icon128.png",
+      "38": "icon38.png",
+      "64": "icon64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnZ+mssWEl12giL1LRZyb2eRjn+JjIOZBjEUxPZD/XiFeAQKRtCU/n3pZg3krxAPTMwO8xENWnczDJeeryYmw+c42s2FwSQWrKaVID6R2yBHRQ2PAV3AVlzOIxtpdGHZ8EMFhzWAt7XxfcL9GQR3lJMBLcuStioNeO8+Mi3KrSPo1K7zuXINaxLTBm2/NPEZTe0JJm8uQxN+U3JCmOIHxSZ8prw/oHAQUnb/25zdB+fL6cmflTPBdU/z/7APzgqGGrDMDLYbtkm1xnNV/Rcwl4KGMwnm1Wb46M/VWdFLnnT47ZShLLiVzLoHtqUK8i4/WQLLTXbBimYT/NZlV8zjLjwIDAQAB",
+   "manifest_version": 2,
+   "name": "eID Chrome Extension",
+   "page_action": {
+      "default_icon": "icon38.png",
+      "default_popup": "page.html"
+   },
+   "permissions": [ "nativeMessaging" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.0"
+}

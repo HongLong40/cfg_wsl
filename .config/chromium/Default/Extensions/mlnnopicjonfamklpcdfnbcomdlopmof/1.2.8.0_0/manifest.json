@@ -1,0 +1,34 @@
+{
+   "background": {
+      "scripts": [ "js/background.bundle.js" ]
+   },
+   "chrome_url_overrides": {
+      "newtab": "newtab.html"
+   },
+   "content_scripts": [ {
+      "js": [ "js/login.bundle.js" ],
+      "matches": [ "*://getpocket.com/extension_newtab_login_success" ]
+   }, {
+      "js": [ "js/logout.bundle.js" ],
+      "matches": [ "*://getpocket.com/login?e=4" ]
+   } ],
+   "description": "Discover fascinating articles every time you open a new tab.",
+   "externally_connectable": {
+      "ids": [  ]
+   },
+   "icons": {
+      "128": "images/newtab-icon-128.png",
+      "16": "images/newtab-icon-16.png",
+      "32": "images/newtab-icon-32.png",
+      "48": "images/newtab-icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArsKNUU+J2nWMQJN8ifpF6rlI6pKCkNvMeVMKBmWrPymgezcNp30/FbjIq67iVRVFZtr+ODvCw12WOa2e7iAhA1vqh1SO02bvLtbUSupI7qHn9f6/4NQKph9qEez7nq8S+ihPEgNeEdPQ24P9pvG4xp56/L649QjnWqNQ0j/MGfMI8AhCRMZeXqrYe/IgFD/rf/8ed0OUQIwqEJNtG0gf/N6CGDCpYNEagZSH9dIV+/22WAM09lCVwpZk8E+i7E9L49VGcqKEBjf3/hNLgDIuRjBDH/xBLx7moh2UpWA2N7fC7pR8GSGm3rGHi98ge48RBSO2fjfB+8nIqiop9cwcqwIDAQAB",
+   "manifest_version": 2,
+   "name": "Pocket Must Reads",
+   "optional_permissions": [ "topSites", "bookmarks" ],
+   "options_page": "options.html",
+   "permissions": [ "contextMenus", "cookies", "storage", "http://getpocket.com/*", "https://getpocket.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.2.8.0",
+   "web_accessible_resources": [ "fonts/ProximaNova-Reg-webfont.eot", "fonts/ProximaNova-Reg-webfont.woff", "fonts/ProximaNova-Reg-webfont.ttf", "fonts/ProximaNova-Sbold-webfont.eot", "fonts/ProximaNova-Sbold-webfont.woff", "fonts/ProximaNova-Sbold-webfont.ttf", "fonts/ProximaNova-Bold-webfont.eot", "fonts/ProximaNova-Bold-webfont.woff", "fonts/ProximaNova-Bold-webfont.ttf", "images/pocket-logo.png" ]
+}

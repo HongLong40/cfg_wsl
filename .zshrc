@@ -19,6 +19,7 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export MAKEFLAGS="-j13 -l12"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -26,7 +27,6 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 export BC_ENV_ARGS=$HOME/.bcrc
 export EDITOR=vim
 export PATH="/usr/lib/ccache/bin/:$PATH"
-export MAKEFLAGS="-j13 -l12"
 export HOSTNAME=$(print -P %m)
 export USERNAME
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
