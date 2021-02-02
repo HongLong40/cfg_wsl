@@ -6,10 +6,11 @@
 git init --bare $HOME/.cfg
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 cfg remote add origin git@github.com:HongLong40/cfg.git
+```
 
 ## Replication
 ```sh
-git clone --separate-git-dir=$HOME/.cfg https://github.com/Siilwyn/cfg.git cfg-tmp
+git clone --separate-git-dir=$HOME/.cfg https://github.com/HongLong40/cfg.git cfg-tmp
 rsync --recursive --verbose --exclude '.git' cfg-tmp/ $HOME/
 rm --recursive cfg-tmp
 ```
