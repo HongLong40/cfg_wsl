@@ -44,7 +44,8 @@ cfg push
 cfg push --set-upstream git@github.com:HongLong40/cfg.git master
 ```
 
-## Credit
-[https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config]
-[https://news.ycombinator.com/item?id=11070797]
-[https://github.com/Siilwyn/my-dotfiles/tree/master/.my-dotfiles]
+------------
+### Credits
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config<br>
+https://news.ycombinator.com/item?id=11070797<br>
+https://github.com/Siilwyn/my-dotfiles/tree/master/.my-dotfiles<br>
