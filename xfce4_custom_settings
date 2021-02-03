@@ -25,7 +25,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>m -n
 xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>Left -n -t string -s left_workspace_key
 xfconf-query -c xfce4-keyboard-shortcuts -p /xfwm4/custom/\<Primary\>\<Alt\>Right -n -t string -s right_workspace_key
 xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Calculator -n -t string -s galculator
-xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Print -n -t string -s flameshot gui
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Print -n -t string -s 'flameshot gui'
 xfconf-query -c xsettings -p /Gtk/CursorThemeName -s Breeze_Red
 xfconf-query -c xsettings -p /Gtk/FontName -s 'Roboto 10'
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s 'Monospace 10'
