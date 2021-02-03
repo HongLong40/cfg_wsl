@@ -35,3 +35,4 @@ xfconf-query -c xfwm4 -p /general/button_layout -s O|HMC
 xfconf-query -c xfwm4 -p /general/theme -s Crux
 xfconf-query -c xfwm4 -p /general/title_alignment -s center
 xfconf-query -c xfwm4 -p /general/title_font -s Noto Sans Display Bold Italic 11
+xfconf-query -c xfwm4 -p /Default/XkbOptions/Compose -s compose:ralt
