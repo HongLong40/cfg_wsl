@@ -39,7 +39,7 @@ cfg commit -m 'Add gitconfig'
 cfg push
 ```
 
-### first-time push
+## first-time push
 ```sh
 cfg push --set-upstream git@github.com:HongLong40/cfg.git master
 ```
