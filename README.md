@@ -8,6 +8,15 @@ alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 cfg remote add origin git@github.com:HongLong40/cfg.git
 ```
 
+## Clone to another system
+
+```sh
+git clone --bare https://github.com/HongLong40/cfg.git $HOME/.cfg
+alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+cfg config --local status.showUntrackedFiles no
+cfg checkout -f
+```
+
 ## Replication
 ```sh
 git clone --separate-git-dir=$HOME/.cfg https://github.com/HongLong40/cfg.git cfg-tmp
@@ -30,19 +39,10 @@ cfg commit -m 'Add gitconfig'
 cfg push
 ```
 
-
-### cfg
-echo "# cfg" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:HongLong40/cfg.git
-git push -u origin main
-
-### note use config alias instead of git
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 ### first-time push
-config push --set-upstream git@github.com:HongLong40/cfg.git master
+cfg push --set-upstream git@github.com:HongLong40/cfg.git master
 
+## Credit
+https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
+https://news.ycombinator.com/item?id=11070797
+https://github.com/Siilwyn/my-dotfiles/tree/master/.my-dotfiles
