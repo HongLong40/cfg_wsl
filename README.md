@@ -40,7 +40,9 @@ cfg push
 ```
 
 ### first-time push
+```sh
 cfg push --set-upstream git@github.com:HongLong40/cfg.git master
+```
 
 ## Credit
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config
