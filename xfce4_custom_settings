@@ -38,3 +38,13 @@ xfconf-query -c xfwm4 -p /general/theme -s Crux
 xfconf-query -c xfwm4 -p /general/title_alignment -s center
 xfconf-query -c xfwm4 -p /general/title_font -s 'Noto Sans Display Bold Italic 11'
 xfconf-query -c xfwm4 -p /Default/XkbOptions/Compose -s compose:ralt
+/commands/custom/\<Shift\>\<Super\>space -n -t string -s 'rofi -modi drun,run -show drun -theme current'
+/xfwm4/custom/<Primary><Super>KP_1         workspace_1_key
+/xfwm4/custom/<Primary><Super>KP_2         workspace_2_key
+/xfwm4/custom/<Primary><Super>KP_3         workspace_3_key
+/xfwm4/custom/<Primary><Super>KP_4         workspace_4_key
+/xfwm4/custom/<Primary><Super>KP_5         workspace_5_key
+/xfwm4/custom/<Primary><Super>KP_6         workspace_6_key
+/xfwm4/custom/<Primary><Super>KP_7         workspace_7_key
+/xfwm4/custom/<Primary><Super>KP_8         workspace_8_key
+/xfwm4/custom/<Primary><Super>KP_9         workspace_9_key

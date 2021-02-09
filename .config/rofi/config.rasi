@@ -1,0 +1,9 @@
+configuration {
+    modi: "window,drun,run";
+    theme: "solarized";
+    font: "Cascadia Code PL 12";
+    // show-icons: true;
+    scrollbar-width: 0;
+    location: 0;
+    yoffset: 100;
+}
