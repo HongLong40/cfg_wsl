@@ -6,4 +6,5 @@ configuration {
     scrollbar-width: 0;
     location: 0;
     yoffset: 100;
+    terminal: "xfce4-terminal";
 }
