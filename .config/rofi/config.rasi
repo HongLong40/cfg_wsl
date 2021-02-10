@@ -2,10 +2,13 @@ configuration {
     modi: "window,drun,run";
     theme: "solarized";
     font: "Cascadia Code PL 12";
-    // show-icons: true;
+    show-icons: true;
     scrollbar-width: 0;
     width: 40;
     location: 0;
-    yoffset: 100;
+    // yoffset: 100;
     terminal: "xfce4-terminal";
+}
+element-icon {
+    size: 1.0em ;
 }
