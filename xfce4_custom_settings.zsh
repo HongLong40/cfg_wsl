@@ -12,70 +12,67 @@ xfconf-query -c xfwm4 -p /general/title_alignment -s center
 xfconf-query -c xfwm4 -p /general/title_font -s 'Roboto Bold Italic 10'
 xfconf-query -c xfwm4 -p /Default/XkbOptions/Compose -n -t string -s 'compose:ralt'
 
-# Workspaces
+# Workspaces: Goto Workspace
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>1" -n -t string -s workspace_1_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>2" -n -t string -s workspace_2_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>3" -n -t string -s workspace_3_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>4" -n -t string -s workspace_4_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>5" -n -t string -s workspace_5_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>6" -n -t string -s workspace_6_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>7" -n -t string -s workspace_7_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>8" -n -t string -s workspace_8_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>9" -n -t string -s workspace_9_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>1" -n -t string -s move_window_workspace_1_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>2" -n -t string -s move_window_workspace_2_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>3" -n -t string -s move_window_workspace_3_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>4" -n -t string -s move_window_workspace_4_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>5" -n -t string -s move_window_workspace_5_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>6" -n -t string -s move_window_workspace_6_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>7" -n -t string -s move_window_workspace_7_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>8" -n -t string -s move_window_workspace_8_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Super>9" -n -t string -s move_window_workspace_9_key
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_1"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_2"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_3"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_4"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_5"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_6"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_7"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_8"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Super>KP_9"
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Alt>Left" -n -t string -s left_workspace_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Alt>Right" -n -t string -s right_workspace_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_1" -t string -s workspace_1_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_2" -t string -s workspace_2_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_3" -t string -s workspace_3_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_4" -t string -s workspace_4_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_5" -t string -s workspace_5_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_6" -t string -s workspace_6_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_7" -t string -s workspace_7_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_8" -t string -s workspace_8_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_9" -t string -s workspace_9_key
 
 # Windows: Tiling
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Left" -n -t string -s tile_left_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Right" -n -t string -s tile_right_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Up" -n -t string -s tile_up_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Down" -n -t string -s tile_down_key
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>KP_Add"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>KP_Subtract"
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Add" -n -t string -s maximize_window_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Subtract" -n -t string -s hide_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>KP_Add" -t string -s maximize_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>KP_Subtract" -t string -s hide_window_key
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_End" -n -t string -s tile_down_left_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Home" -n -t string -s tile_up_left_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Next" -n -t string -s tile_down_right_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>KP_Page_Up" -n -t string -s tile_up_right_key
+# Windows: Closing 
 
-# Windows: Moving, Resizing, etc
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Primary><Alt>q"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Alt>q" -t string -s close_window_key
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>d" -n -t string -s show_desktop_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Super>Tab" -n -t string -s switch_window_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Alt>m" -n -t string -s move_window_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Primary><Alt>r" -n -t string -s resize_window_key
-xfconf-query -c xfce4-keyboard-shortcuts -p "/xfwm4/custom/<Alt>q" -n -t string -s close_window_key
+### Application Menus
 
-# Application Menus
-
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>space" -n -t string -s 'rofi -show window'
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Shift><Super>space" -n -t string -s xfce4-popup-whiskermenu 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>r" -n -t string -s 'xfce4-appfinder -c'
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>r/startup-notify" -n -t string -s true
+## rofi
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>space"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>space" -t string -s 'rofi -show window'
 
 # Applications
 
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>e" -n -t string -s thunar
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>b" -n -t string -s opera
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>h" -n -t string -s 'opera --private'
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>i" -n -t string -s xfce4-settings-manager
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>m" -n -t string -s clementine
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>t" -n -t string -s xfce4-terminal
-xfconf-query -c xfce4-keyboard-shortcuts -p "/commands/custom/<Super>v" -n -t string -s gvim
+# opera
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>b"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>b" -t string -s opera
 
-xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Calculator -n -t string -s galculator
-xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Print -n -t string -s 'flameshot gui'
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>h"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>h" -t string -s 'opera --private'
+
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>i"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>i" -t string -s xfce4-settings-manager
+
+# gVim
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>v"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>v" -t string -s gvim
+
+# Calculator
+xfconf-query -c xfce4-keyboard-shortcuts -rp /commands/custom/Calculator
+xfconf-query -c xfce4-keyboard-shortcuts -np /commands/custom/Calculator -t string -s galculator
+
+# Screen Capture
+xfconf-query -c xfce4-keyboard-shortcuts -p /commands/custom/Print -s 'flameshot gui'
 

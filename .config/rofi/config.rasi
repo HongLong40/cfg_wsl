@@ -5,6 +5,7 @@ configuration {
     show-icons: true;
     scrollbar-width: 0;
     width: 40;
+    monitor: "primary";
     location: 0;
     // yoffset: 100;
     terminal: "xfce4-terminal";
