@@ -36,11 +36,11 @@ xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_9
 
 # Windows: Tiling
 
-xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>KP_Add"
-xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>KP_Subtract"
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>="
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/xfwm4/custom/<Super>-"
 
-xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>KP_Add" -t string -s maximize_window_key
-xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>KP_Subtract" -t string -s hide_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>=" -t string -s maximize_window_key
+xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Super>-" -t string -s hide_window_key
 
 # Windows: Closing 
 
