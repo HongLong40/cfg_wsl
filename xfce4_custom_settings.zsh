@@ -5,12 +5,13 @@ xfconf-query -c xsettings -p /Gtk/CursorThemeName -s Breeze_Amber
 xfconf-query -c xsettings -p /Gtk/FontName -s 'Roboto 10'
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s 'Monospace 10'
 xfconf-query -c xsettings -p /Net/IconThemeName -s Papirus-Dark
-xfconf-query -c xsettings -p /Net/ThemeName -s Arc-Dark-Bluer
+xfconf-query -c xsettings -p /Net/ThemeName -s Arc-Dark-Orange-Red
+#xfconf-query -c xsettings -p /Net/ThemeName -s Arc-Dark-Bluer
 xfconf-query -c xfwm4 -p /general/button_layout -s '|'
 xfconf-query -c xfwm4 -p /general/theme -s Tgc
 xfconf-query -c xfwm4 -p /general/title_alignment -s center
 xfconf-query -c xfwm4 -p /general/title_font -s 'Roboto Bold Italic 10'
-xfconf-query -c xfwm4 -p /Default/XkbOptions/Compose -n -t string -s 'compose:ralt'
+xfconf-query -c xfwm4 -np /Default/XkbOptions/Compose -t string -s 'compose:ralt'
 
 # Workspaces: Goto Workspace
 
