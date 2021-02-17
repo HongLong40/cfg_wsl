@@ -29,6 +29,9 @@ xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_1
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_2" -t string -s workspace_2_key
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_3" -t string -s workspace_3_key
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_4" -t string -s workspace_4_key
+# gVim
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>v"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>v" -t string -s gvim
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_5" -t string -s workspace_5_key
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_6" -t string -s workspace_6_key
 xfconf-query -c xfce4-keyboard-shortcuts -np "/xfwm4/custom/<Primary><Super>KP_7" -t string -s workspace_7_key
@@ -69,6 +72,10 @@ xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>i" -t stri
 # gVim
 xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Super>v"
 xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Super>v" -t string -s gvim
+
+# Set volume control to HDMI
+xfconf-query -c xfce4-keyboard-shortcuts -rp "/commands/custom/<Primary><Super>v"
+xfconf-query -c xfce4-keyboard-shortcuts -np "/commands/custom/<Primary><Super>v" -t string -s 'pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo'
 
 # Calculator
 xfconf-query -c xfce4-keyboard-shortcuts -rp /commands/custom/Calculator

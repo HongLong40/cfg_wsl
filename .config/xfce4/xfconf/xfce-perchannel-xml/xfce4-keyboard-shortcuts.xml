@@ -64,6 +64,7 @@
       <property name="&lt;Super&gt;i" type="string" value="xfce4-settings-manager"/>
       <property name="&lt;Super&gt;v" type="string" value="gvim"/>
       <property name="Calculator" type="string" value="galculator"/>
+      <property name="&lt;Primary&gt;&lt;Super&gt;v" type="string" value="pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
