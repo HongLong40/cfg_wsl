@@ -176,10 +176,14 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+    -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    local names = { "main", "www", "vim", "misc", "vbox", "remote", "media", "8-b", "9-c" }
+    local l = awful.layout.suit  -- Just to save some typing: use an alias.
+    local layouts = { l.tile, l.tile, l.tile, l.fair, l.max, l.floating, l.tile.left, l.floating, l.floating }
+    awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -223,7 +227,7 @@ awful.screen.connect_for_each_screen(function(s)
             --mykeyboardlayout,
             audio_widget(),
             wibox.widget.systray(),
-            awful.widget.watch('batbar',5),
+            --awful.widget.watch('batbar',5),
             mytextclock,
             s.mylayoutbox,
         },
@@ -339,7 +343,9 @@ globalkeys = gears.table.join(
     -- Menubar
     --awful.key({ modkey }, "p", function() menubar.show() end,
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show window") end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "Apps"}),
+    awful.key({ modkey }, "v", function() awful.spawn("gvim") end,
+              {description = "gVim", group = "Apps"})
 )
 
 clientkeys = gears.table.join(
