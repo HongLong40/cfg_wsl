@@ -52,17 +52,12 @@ do
 end
 -- }}}
 
+awesome.set_preferred_icon_size(16)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
--- beautiful.init(gears.filesystem.get_themes_dir() .. "sky/theme.lua")
--- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
--- beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
-
-awesome.set_preferred_icon_size(16)
-beautiful.useless_gap = 3
-beautiful.border_focus = "#ff7777"
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -182,8 +177,11 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
+    -- Wallpaper
+    -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
     local names = { "main", "www", "vim", "misc", "vbox", "remote", "media", "8-b", "9-c" }
     local l = awful.layout.suit  -- Just to save some typing: use an alias.
     local layouts = { l.tile, l.tile, l.tile, l.fair, l.max, l.floating, l.tile.left, l.floating, l.floating }
@@ -191,7 +189,6 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
-
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
@@ -199,10 +196,7 @@ awful.screen.connect_for_each_screen(function(s)
                            awful.button({ }, 1, function () awful.layout.inc( 1) end),
                            awful.button({ }, 3, function () awful.layout.inc(-1) end),
                            awful.button({ }, 4, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 5, function () awful.layout.inc(-1) end)
-                           )
-                         )
-
+                           awful.button({ }, 5, function () awful.layout.inc(-1) end)))
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
         screen  = s,
@@ -494,22 +488,20 @@ root.keys(globalkeys)
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
-    -- All clients will match this rule. --{
+    -- All clients will match this rule.
     { rule = { },
-      properties = {
-          border_width = beautiful.border_width,
-          border_color = beautiful.border_normal,
-          focus = awful.client.focus.filter,
-          raise = true,
-          keys = clientkeys,
-          buttons = clientbuttons,
-          screen = awful.screen.preferred,
-          placement = awful.placement.no_overlap+awful.placement.no_offscreen
-      }
+      properties = { border_width = beautiful.border_width,
+                     border_color = beautiful.border_normal,
+                     focus = awful.client.focus.filter,
+                     raise = true,
+                     keys = clientkeys,
+                     buttons = clientbuttons,
+                     screen = awful.screen.preferred,
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+     }
     },
-    --}
 
-    -- Floating clients. --{
+    -- Floating clients.
     { rule_any = {
         instance = {
           "DTA",  -- Firefox addon DownThemAll.
@@ -518,12 +510,15 @@ awful.rules.rules = {
         },
         class = {
           "Arandr",
-          "gl",
-          "mpv",
+          "Blueman-manager",
           "Gpick",
-          "gpick",
-          "pavucontrol"
-        },
+          "Kruler",
+          "MessageWin",  -- kalarm.
+          "Sxiv",
+          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
+          "Wpa_gui",
+          "veromix",
+          "xtightvncviewer"},
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
         -- and the name shown there might not match defined rules here.
@@ -531,33 +526,24 @@ awful.rules.rules = {
           "Event Tester",  -- xev.
         },
         role = {
+          "AlarmWindow",  -- Thunderbird's calendar.
+          "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      },
-      properties = { floating = true }
-    },
-    --}
+      }, properties = { floating = true }},
 
-    -- Add titlebars to normal clients and dialogs --{
-    { rule_any = {
-        type = {
-          "normal", "dialog"
-        }
-      },
-      properties = { titlebars_enabled = false }
+    -- Add titlebars to normal clients and dialogs
+    { rule_any = {type = { "normal", "dialog" }
+      }, properties = { titlebars_enabled = false }
     },
-    --}
 
-    -- Set Opera to always map on the tag named "www" on screen 1.
-    { rule = {
-        class = "Opera", "opera"
-      },
-      properties = { screen = 1, tag = "www" }
-    },
+    -- Set Firefox to always map on the tag named "2" on screen 1.
+    -- { rule = { class = "Firefox" },
+    --   properties = { screen = 1, tag = "2" } },
 }
 -- }}}
 
---{{{ Signals
+-- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -619,14 +605,17 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
---}}}
+-- }}}
 
 awful.spawn.with_shell("/home/edward/.screenlayout/display.sh")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=pkcs11")
 awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=secrets")
 awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh")
---awful.spawn.with_shell("xfce4-power_manager 2> /dev/null")
+awful.spawn.with_shell("picom")
+awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("start-pulseaudio-x11")
 --awful.spawn.with_shell("xfce4-panel")
 --awful.spawn.with_shell("volumeicon")
-awful.spawn.with_shell("/home/edward/.config/awesome/autorun.sh")
+awful.spawn.with_shell("conky --config=/home/edward/.config/conky/conkyob.conf --daemonize --pause=1")
+awful.spawn.with_shell("nitrogen --restore")
