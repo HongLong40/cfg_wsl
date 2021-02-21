@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+chosen=$(wmctrl -d | awk '{ print $1+1 " │ " $NF }' | rofi -dmenu -p "🖥 Workspaces")
+
+if [[ ! -z $chosen ]] {
+
+    chosenws=$(echo $chosen | awk '{ print $1-1 }')
+
+    wmctrl -r :ACTIVE: -t $chosenws
+
+}
+

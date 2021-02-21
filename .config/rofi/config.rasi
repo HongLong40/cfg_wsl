@@ -1,5 +1,7 @@
 configuration {
-    modi: "window,drun,run";
+    modi: "run,window,drun,combi";
+    combi-modi: "window,drun";
+    display-combi: "🗔 ";
     theme: "solarized";
     font: "Cascadia Code PL 12";
     show-icons: true;

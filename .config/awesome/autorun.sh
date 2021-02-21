@@ -7,7 +7,7 @@ function run {
   fi
 }
 
-run /home/edward/.screenlayout/display.sh
+run $HOME/.screenlayout/display.sh
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets
@@ -16,6 +16,6 @@ run picom
 run nm-applet
 run start-pulseaudio-x11
 run nitrogen --restore
-run conky --config=/home/edward/.config/conky/conkyob.conf --daemonize --pause=1
+run conky --config=$HOME/.config/conky/conkyob.conf --daemonize --pause=1
 run numlockx on
 run xfce4-power-manager

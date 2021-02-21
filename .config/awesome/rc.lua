@@ -20,7 +20,6 @@ local menubar       = require("menubar")
 -- local lain          = require("lain")
 -- local volume        = require("volume")
 
-local audio_widget = require("awesome-pulseaudio-widget")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
@@ -56,13 +55,33 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "sky/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
 
+--local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "default")
+--beautiful.init(theme_path)
+
 awesome.set_preferred_icon_size(16)
 beautiful.useless_gap = 3
-beautiful.border_focus = "#ff7777"
+--beautiful.border_focus = "#ff7777"
+beautiful.border_focus = "#a61318"
+beautiful.bg_focus = "#ba4705"
+beautiful.font = "Roboto 10"
+beautiful.tasklist_font_focus = "Roboto Bold Italic 10"
+
+local audio_widget = require("awesome-pulseaudio-widget")
+
+-- -- require *after* `beautiful.init` or the theme will be inconsistent!
+-- local pulse = require("pulseaudio_widget")
+-- 
+-- -- Optionally, change the notification timeout default of 1 second to 5.
+-- pulse.notification_timeout_seconds = 5
+
+
+
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -124,7 +143,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock('<span><b>%a <span foreground="yellow">%H:%M</span> • %Y-%m-%d • w%V </b></span>')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -232,10 +251,23 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            --mykeyboardlayout,
             audio_widget(),
-            wibox.widget.systray(),
-            --mytextclock,
+            wibox.widget.textbox('  │  '),
+            {
+                layout = awful.widget.only_on_screen,
+                screen = 1,
+                wibox.widget.systray(),
+            },
+            {
+                layout = awful.widget.only_on_screen,
+                screen = 1,
+                wibox.widget.textbox('  │  '),
+            },
+            {
+                layout = awful.widget.only_on_screen,
+                screen = 1,
+                mytextclock,
+            },
             s.mylayoutbox,
         },
     }
@@ -376,6 +408,15 @@ globalkeys = gears.table.join(
                 { modkey }, "v",
                 function() awful.spawn("gvim") end,
                 {description = "gVim", group = "Apps"}
+              ),
+
+    -- Volume Control
+    awful.key (
+                { modkey, "Control" }, "v",
+                function()
+                    awful.spawn("pavucontrol", { floating = true, placement = awful.placement.centered } )
+                end,
+                {description = "Volume Control", group = "Apps"}
               )
 )
 
@@ -621,12 +662,4 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 --}}}
 
-awful.spawn.with_shell("/home/edward/.screenlayout/display.sh")
-awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=pkcs11")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=secrets")
-awful.spawn.with_shell("/usr/bin/gnome-keyring-daemon --start --components=ssh")
---awful.spawn.with_shell("xfce4-power_manager 2> /dev/null")
---awful.spawn.with_shell("xfce4-panel")
---awful.spawn.with_shell("volumeicon")
 awful.spawn.with_shell("/home/edward/.config/awesome/autorun.sh")

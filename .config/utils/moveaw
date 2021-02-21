@@ -1,0 +1,26 @@
+#!/bin/zsh
+
+# Get active window ID
+
+_w_active_id=$(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2 | sed 's/0x/0x0/')
+
+# Get geometry of active window
+
+_w_active_geo=${$(wmctrl -l -G | grep -e $_w_active_id | awk '{ print $3,$4,$5,$6 }')}
+
+_w_active_x=$(echo $_w_active_geo | awk '{ print $1 }')
+_w_active_y=$(echo $_w_active_geo | awk '{ print $2 }')
+_w_active_w=$(echo $_w_active_geo | awk '{ print $3 }')
+_w_active_h=$(echo $_w_active_geo | awk '{ print $4 }')
+
+# If x < 1920, window is on the 1st screen. Add 1920 to move it to the 2nd screen
+# If x >= 1920, window is on the 2nd screen. Subtract 1920 to move it to the 1st screen
+
+if [[ $_w_active_x -lt 1920 ]] {
+    (( _w_new_x = _w_active_x + 1920 ))
+} else {
+    (( _w_new_x = _w_active_x - 1920 ))
+}
+
+wmctrl -i -r $_w_active_id -e 0,$_w_new_x,$_w_active_y,$_w_active_w,$_w_active_h
+
