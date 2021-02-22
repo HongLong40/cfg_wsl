@@ -51,7 +51,7 @@
     Mod2+Mod4 + p
 
 # ## Workspaces:         Super + 1..9 ➔ goto Workspace 1..9.
-$                Shift + Super + 1..9 ➔ move active window to Workspace 1..9.
+#                Shift + Super + 1..9 ➔ move active window to Workspace 1..9.
 "wmctrl -s 0"
     Mod2+Mod4 + 1
 
