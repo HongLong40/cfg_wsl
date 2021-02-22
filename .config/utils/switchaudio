@@ -1,29 +1,19 @@
 #!/bin/zsh
 
-## chosen=$(pactl list short sinks | awk '{ print $1 " " $2 " " $7 }' | rofi -dmenu -l 5 -location 5 -yoffset -30 -p "🎚" | awk '{ print $1 }')
+setopt localoptions
 
-chosen=$(pactl list short sinks | awk '{ print $1 " " $2 " " $7 }' | rofi -dmenu -l 5 -location 5 -yoffset -30 -p "🎜 🎚" )
+chosen=$(pactl list short sinks | awk '{ print $1,$2,$7 }' | rofi -dmenu -l 5 -location 5 -yoffset -30 -p "🎜 🎚" )
 
-chosen_sink_id=$(echo $chosen | awk '{ print $1 }' )
-chosen_sink_nm=$(echo $chosen | awk '{ print $2 }' )
+typeset -A sink
+sink=( $( echo $chosen | awk '{ print "id",$1,"nm",$2 }' ) )
 
-if [[ ! -z $chosen_sink_nm ]] {
+if [[ ! -z $sink[nm] ]] {
 
-    pactl set-default-sink $chosen_sink_nm
-    echo $chosen_sink_nm set as default
+    pactl set-default-sink $sink[nm]
 
-    sink_input=$(pactl list short sink-inputs | awk '{ print $1 }' )
+    typeset -a inputs=( $(pactl list sink-inputs short | cut -f 1) )
 
-    if [[ ! -z $sink_input ]] {
+    for input ( $inputs ) { pactl move-sink-input $input $sink[id] }
 
-        echo cmd: pactl move-sink-input $sink_input $chosen
-        pactl move-sink-input $sink_input $chosen
-
-    } else {
-        echo no sink-inputs found!
-    }
-
-} else {
-    echo Nothing was chosen!
-}
+} 
 
