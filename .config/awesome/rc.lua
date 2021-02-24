@@ -200,6 +200,9 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+
+-- awful.spawnOnce("/home/edward/.screenlayout/display.sh")
+
 awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
@@ -417,7 +420,16 @@ globalkeys = gears.table.join(
                     awful.spawn("pavucontrol", { floating = true, placement = awful.placement.centered } )
                 end,
                 {description = "Volume Control", group = "Apps"}
+              ),
+
+    awful.key (
+                { modkey, "Shift" }, "v",
+                function()
+                    awful.spawn("/home/edward/.config/utils/switchaudio")
+                end,
+                {description = "Switch Volume Output", group = "Apps"}
               )
+
 )
 
 clientkeys = gears.table.join(
@@ -561,8 +573,8 @@ awful.rules.rules = {
           "Arandr",
           "gl",
           "mpv",
-          "Gpick",
-          "gpick",
+          "lxappearance","Lxappearance",
+          "Gpick", "gpick",
           "pavucontrol"
         },
 
@@ -575,7 +587,7 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       },
-      properties = { floating = true }
+      properties = { floating = true, placement = awful.placement.centered }
     },
     --}
 

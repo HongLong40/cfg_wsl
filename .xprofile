@@ -1,1 +1,8 @@
-xbindkeys &
+#!/bin/bash
+env > ~/env.txt
+
+if [ $DESKTOP_SESSION == "xfce" ]
+then
+    xbindkeys &
+fi
+
