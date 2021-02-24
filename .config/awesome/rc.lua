@@ -200,9 +200,6 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-
--- awful.spawnOnce("/home/edward/.screenlayout/display.sh")
-
 awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
@@ -254,18 +251,18 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            audio_widget(),
-            wibox.widget.textbox('  │  '),
-            {
-                layout = awful.widget.only_on_screen,
-                screen = 1,
-                wibox.widget.systray(),
-            },
-            {
-                layout = awful.widget.only_on_screen,
-                screen = 1,
-                wibox.widget.textbox('  │  '),
-            },
+            --audio_widget(),
+           -- wibox.widget.textbox('  │  '),
+           -- {
+           --     layout = awful.widget.only_on_screen,
+           --     screen = 1,
+           --     wibox.widget.systray(),
+           -- },
+           --  {
+           --      layout = awful.widget.only_on_screen,
+           --      screen = 1,
+           --      wibox.widget.textbox('  │  '),
+           --  },
             {
                 layout = awful.widget.only_on_screen,
                 screen = 1,
@@ -419,7 +416,7 @@ globalkeys = gears.table.join(
                 function()
                     awful.spawn("pavucontrol", { floating = true, placement = awful.placement.centered } )
                 end,
-                {description = "Volume Control", group = "Apps"}
+                {description = "Volume Control", group = "Audio"}
               ),
 
     awful.key (
@@ -427,7 +424,31 @@ globalkeys = gears.table.join(
                 function()
                     awful.spawn("/home/edward/.config/utils/switchaudio")
                 end,
-                {description = "Switch Volume Output", group = "Apps"}
+                {description = "Switch Volume Output", group = "Audio"}
+              ),
+
+    awful.key (
+                { }, "XF86AudioMute",
+                function()
+                    awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false)
+                end,
+                {description = "Audio: Mute", group = "Audio"}
+              ),
+
+    awful.key (
+                { }, "XF86AudioRaiseVolume",
+                function()
+                    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%", false)
+                end,
+                {description = "Audio: Raise Volume", group = "Audio"}
+              ),
+
+    awful.key (
+                { }, "XF86AudioLowerVolume",
+                function()
+                    awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%", false)
+                end,
+                {description = "Audio: Lower Volume", group = "Audio"}
               )
 
 )

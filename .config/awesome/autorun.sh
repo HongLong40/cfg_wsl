@@ -7,7 +7,7 @@ function run {
   fi
 }
 
-run $HOME/.screenlayout/display.sh
+##run $HOME/.screenlayout/display.sh
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 run /usr/bin/gnome-keyring-daemon --start --components=secrets

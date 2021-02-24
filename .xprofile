@@ -6,3 +6,4 @@ then
     xbindkeys &
 fi
 
+~/.screenlayout/display.sh
