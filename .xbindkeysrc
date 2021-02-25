@@ -136,7 +136,7 @@
 
 # Volume Control
 "pavucontrol"
-    Mod2+Mod4 + v
+    Control+Mod2+Mod4 + v
 
 # switch audio
 "$HOME/.config/utils/switchaudio"
