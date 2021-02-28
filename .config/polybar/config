@@ -82,14 +82,14 @@ format-offset     =
 
     label-monitor = %name%
 
-    label-active = %index% - %name%
+    label-active = %name%
     label-active-background = ${colors.slate-t}
     label-active-padding = 4
 
-    label-empty = %index% - %name%
+    label-empty = %name%
     label-empty-padding = 4
 
-    label-occupied = %index% - %name%
+    label-occupied = %name%
     label-occupied-background = ${colors.slate-s}
     label-occupied-padding = 4
 
