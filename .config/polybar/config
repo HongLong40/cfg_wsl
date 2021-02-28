@@ -176,7 +176,7 @@ format-offset     =
     label-volume =  %percentage%%
     format-volume-padding = 2
     format-volume-font = 2
-    format-volume-underline = #00aaaa
+    format-volume-underline = #aa00aa
 
     label-muted =  muted
     label-muted-foreground = #aaa
@@ -209,6 +209,19 @@ format-offset     =
     label =  - %output%
     format-font = 3
 # --}
+
+#[module/tagmon]
+## --{
+#    type = custom/script
+#    exec = $HOME/.config/herbstluftwm/hcstack.sh
+#    interval = 5
+#    format = <label>
+#    label = %output%
+#    format-font = 2
+#    format-underline = #aa00aa
+#    format-padding = 2
+## --}
+
 
 ## ==================================================================== ##
 

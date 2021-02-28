@@ -1,6 +1,11 @@
 #!/bin/bash
 env > ~/env.txt
 
+if [ $DESKTOP_SESSION == "herbstluftwm" ]
+then
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+fi
+
 if [ $DESKTOP_SESSION == "xfce" ]
 then
     xbindkeys &

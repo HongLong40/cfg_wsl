@@ -86,6 +86,10 @@ hc keybind $Mod-Control-Down    resize down +$resizestep
 hc keybind $Mod-Control-Up      resize up +$resizestep
 hc keybind $Mod-Control-Right   resize right +$resizestep
 
+# move to monitor
+hc keybind $Mod-Mod1-Right shift_to_monitor +1
+hc keybind $Mod-Mod1-Left  shift_to_monitor -1
+
 # tags
 tag_names=( "main" "sys" "vim" "misc" "vbox" "remote" "media" "a" "b" )
 tag_keys=( {1..9} 0 )
@@ -144,7 +148,7 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 2
 hc set frame_gap 4
 
-hc attr theme.active.color '#ff0000'
+hc attr theme.active.color '#aa00aa'
 hc attr theme.normal.color '#454545'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 1
@@ -178,8 +182,8 @@ hc rule floatplacement=smart
 hc rule class=VirtualBox tag=5 # move all VMs to tag 5
 hc rule class='VirtualBox Manager' tag=vbox # move all VMs to tag 5
 
-hc rule class=Galculator floating=on
-
+hc rule class=Galculator floating=on floatplacement=smart
+hc rule class=Seahorse   floating=on floatplacement=center
 
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
