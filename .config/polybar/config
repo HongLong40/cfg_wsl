@@ -1,0 +1,244 @@
+## ==================================================================== ##
+
+[global/wm]
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
+margin-top = 0
+margin-bottom = 0
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+screenchange-reload = true
+
+[colors]
+yellow = #FFFF00
+soft-white = #CFCFCF
+
+; slate triadic
+slate-p = #1A355B
+slate-s = #5B1A35
+slate-t = #355B1A
+
+## ==================================================================== ##
+##  Compositing operators
+##  see: https://www.cairographics.org/manual/cairo-cairo-t.html#cairo-operator-t
+## ==================================================================== ##
+compositing-background = over
+compositing-foreground = over
+compositing-overline   = over
+compositing-underline  = over
+compositing-border     = over
+
+## ==================================================================== ##
+##  Define fallback values used by all module formats
+## ==================================================================== ##
+format-foreground = ${colors.soft-white}
+format-background = ${colors.slate-p}
+format-underline  =
+format-overline   =
+format-spacing    =
+format-padding    =
+format-margin     =
+format-offset     =
+
+## == Modules ========================================================= ##
+
+[module/cdate]
+# --{
+    type = internal/date
+    interval = 60
+    date = %{F#FFFF00}%H:%M%{F-} • %Y-%m-%d • w%V%
+    label-padding = 2
+    format-background = ${colors.slate-s}
+    format-font = 2
+# --}
+
+[module/ewmh]
+# --{ workspaces
+    type = internal/xworkspaces
+
+    pin-workspaces = false
+    enable-click = true
+    enable-scroll = true
+    reverse-scroll = true
+
+    ;extra icons to choose from
+    ;http://fontawesome.io/cheatsheet/
+
+    ;icon-0 = main;
+    ;icon-1 = sys;
+    ;icon-2 = vim;
+    ;icon-3 = misc;
+    ;icon-4 = vbox;
+    ;icon-5 = remote;
+    ;icon-6 = media;
+    ;icon-7 = 8;
+    ;icon-8 = 9;
+    ;#icon-9 = 10;
+    ;icon-default = " "
+
+    format = <label-state>
+    format-font = 2
+
+    label-monitor = %name%
+
+    label-active = %index% - %name%
+    label-active-background = ${colors.slate-t}
+    label-active-padding = 4
+
+    label-empty = %index% - %name%
+    label-empty-padding = 4
+
+    label-occupied = %index% - %name%
+    label-occupied-background = ${colors.slate-s}
+    label-occupied-padding = 4
+
+# --}
+
+[module/xwindow]
+# --{ https://github.com/jaagr/polybar/wiki/Module:-xwindow
+    type = internal/xwindow
+    label = %title%
+    format-background = ${colors.slate-t}
+    format-font       = 3
+    format-padding    = 4
+# --}
+
+[module/battery]
+# --{
+    type = internal/battery
+
+    ; This is useful in case the battery never reports 100% charge
+    full-at = 100
+
+    ; Use the following command to list batteries and adapters:
+    ; $ ls -1 /sys/class/power_supply/
+    battery = BAT0
+    adapter = ADP1
+
+    ; If an inotify event haven't been reported in this many
+    ; seconds, manually poll for new values.
+    ;
+    ; Needed as a fallback for systems that don't report events
+    ; on sysfs/procfs.
+    ;
+    ; Disable polling by setting the interval to 0.
+    ;
+    ; Default: 5
+    poll-interval = 15
+    time-format = %H:%M
+
+    label-charging = %{F#00FF00} %{F-} %percentage%% (%time%)
+    format-charging-padding = 2
+    format-charging-font = 2
+    format-charging-underline = #00ff00
+
+    label-discharging = %{F#FF0000} %{F-}  %percentage%% (%time%)
+    format-discharging-padding = 2
+    format-discharging-font = 2
+    format-discharging-underline = #ff0000
+
+    label-full =  Full
+    format-full-font = 2
+    format-full-padding = 2
+
+# --}
+
+[module/cpu]
+# --{
+    type = internal/cpu
+
+    ; Seconds to sleep between updates
+    ; Default: 1
+    interval = 1
+
+    format = <label>
+
+    label = CPU %percentage%%
+    format-font = 2
+    format-padding = 2
+    format-underline = #aa00aa
+# --}
+
+[module/pulseaudio]
+# --{
+    type = internal/pulseaudio
+
+    ; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+    ; Default: true
+    use-ui-max = true
+
+    ; Interval for volume increase/decrease (in percent points)
+    ; Default: 5
+    interval = 2
+
+    format-volume = <label-volume>
+    label-volume =  %percentage%%
+    format-volume-padding = 2
+    format-volume-font = 2
+    format-volume-underline = #00aaaa
+
+    label-muted =  muted
+    label-muted-foreground = #aaa
+    format-muted-padding = 2
+    format-muted-font = 2
+    format-muted-underline = #00aaaa
+# --}
+
+[module/memory]
+# --{
+    type = internal/memory
+
+    ; Seconds to sleep between updates
+    ; Default: 1
+    interval = 3
+
+    label = MEM %percentage_used%% = %gb_used% | %gb_free% | %gb_total%
+    format-padding = 2
+    format-font = 2
+    format-underline = #00aa00
+# --}
+
+[module/clementine]
+# --{
+    type = custom/script
+    exec-if = playerctl -p clementine status | grep -i "playing"
+    exec = playerctl -p clementine metadata title
+    interval = 5
+    format = <label>
+    label =  - %output%
+    format-font = 3
+# --}
+
+## ==================================================================== ##
+
+[bar/slate]
+monitor = ${env:MONITOR}
+monitor-fallback = HDMI-0
+background = ${colors.slate-p} 
+height = 24
+
+font-0 = Roboto-Regular:size=10;2
+font-1 = Roboto-Regular:bold:size=10;2
+font-2 = Roboto-Regular:italic:bold:size=10;2
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
+
+separator =
+underline-size = 2
+;padding-right = 3
+
+;tray-position = right
+;dim-value = 0.5
+
+wm-name = hluft_MONITOR
+
+enable-ipc = true
+
+modules-left  = ewmh clementine
+modules-center = xwindow
+modules-right = pulseaudio memory cpu battery cdate
+
+###############################################################################
+# vim:ft=dosini
