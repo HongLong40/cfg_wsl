@@ -7,13 +7,9 @@ chosen=$(pactl list short sinks | awk '{ print $1,$2,$7 }' | rofi -dmenu -l 5 -l
 typeset -A sink
 sink=( $( echo $chosen | awk '{ print "id",$1,"nm",$2 }' ) )
 
-if [[ ! -z $sink[nm] ]] {
-
+if [[ ! -z $sink[nm] ]]; then
     pactl set-default-sink $sink[nm]
-
     typeset -a inputs=( $(pactl list sink-inputs short | cut -f 1) )
-
-    for input ( $inputs ) { pactl move-sink-input $input $sink[id] }
-
-} 
+    for input ( $inputs ); do pactl move-sink-input $input $sink[id]; done
+fi
 
