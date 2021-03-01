@@ -90,6 +90,9 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 hc keybind $Mod-Mod1-Right shift_to_monitor +1
 hc keybind $Mod-Mod1-Left  shift_to_monitor -1
 
+# default frame layout: 0 vertical | 1 horizontal | 2 max | 3 grid
+hc set default_frame_layout 1
+
 # tags
 # tag_names=( "main" "sys" "vim" "misc" "vbox" "remote" "media" "a" "b" )
 tag_names=( {1..9} )
@@ -149,7 +152,7 @@ hc set frame_bg_transparent on
 hc set frame_transparent_width 2
 hc set frame_gap 4
 
-hc attr theme.active.color '#aa00aa'
+hc attr theme.active.color '#AA00AA'
 hc attr theme.normal.color '#454545'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 1
@@ -167,9 +170,7 @@ hc set frame_padding 0
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 hc set mouse_recenter_gap 0
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload slate &
-done
+
 # rules
 hc unrule -F
 
@@ -179,9 +180,6 @@ hc rule floatplacement=smart
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-
-hc rule class=VirtualBox tag=5 # move all VMs to tag 5
-hc rule class='VirtualBox Manager' tag=vbox # move all VMs to tag 5
 
 hc rule class=Galculator floating=on floatplacement=smart
 hc rule class=Seahorse   floating=on floatplacement=center
