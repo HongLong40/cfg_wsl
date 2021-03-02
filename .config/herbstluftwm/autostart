@@ -181,10 +181,11 @@ hc rule floatplacement=smart
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 
-hc rule class=Galculator floating=on floatplacement=smart
-hc rule class=gl         floating=on floatplacement=smart
-hc rule class=mpv        floating=on floatplacement=smart
-hc rule class=Seahorse   floating=on floatplacement=center
+hc rule class=Galculator    floating=on floatplacement=smart
+hc rule class=gl            floating=on floatplacement=smart
+hc rule class=Lxappearance  floating=on floatplacement=smart
+hc rule class=mpv           floating=on floatplacement=smart
+hc rule class=Seahorse      floating=on floatplacement=center
 
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on

@@ -243,7 +243,7 @@ underline-size = 2
 ;padding-right = 3
 
 ;tray-position = right
-;dim-value = 0.5
+;dim-value = 0.1
 
 wm-name = hluft_MONITOR
 
