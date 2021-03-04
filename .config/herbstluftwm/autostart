@@ -12,14 +12,12 @@ xsetroot -solid '#5A8E3A'
 picom &
 nitrogen --restore &
 
-
 if hc silent new_attr bool my_not_first_autostart ; then
     conky --daemonize --pause=1 &
     xfce4-power-manager &
     synology-cloud-station-drive autostart &
     ## /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
-
 
 # remove all existing keybindings
 hc keyunbind --all
@@ -201,8 +199,17 @@ hc unlock
 # or simply:
 hc detect_monitors
 
-killall polybar
+if [[ -z $(pgrep -x polybar) ]]; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload slate &
+    done
+else    
+    polybar-msg cmd restart
+    notify-send "Polybars restarted"
+fi
 
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload slate &
-done
+##killall polybar
+
+##for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+##    MONITOR=$m polybar --reload slate &
+##done
