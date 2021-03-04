@@ -205,7 +205,7 @@ if [[ -z $(pgrep -x polybar) ]]; then
     done
 else    
     polybar-msg cmd restart
-    notify-send "Polybars restarted"
+    notify-send -t 2000 "Polybars restarted"
 fi
 
 ##killall polybar
