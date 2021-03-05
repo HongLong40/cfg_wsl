@@ -6,15 +6,24 @@ hc() {
     herbstclient "$@"
 }
 
+run() {
+    if ! pgrep -f $1 ;
+    then
+        $@&
+    fi
+}
+
 hc emit_hook reload
 
 xsetroot -solid '#5A8E3A'
-picom &
-nitrogen --restore &
+
+run picom
+run nitrogen --restore
+run conky --daemonize --pause=1
+run xfce4-power-manager
+run dunst
 
 if hc silent new_attr bool my_not_first_autostart ; then
-    conky --daemonize --pause=1 &
-    xfce4-power-manager &
     synology-cloud-station-drive autostart &
     ## /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
@@ -205,7 +214,8 @@ if [[ -z $(pgrep -x polybar) ]]; then
     done
 else    
     polybar-msg cmd restart
-    notify-send -t 2000 "Polybars restarted"
+    dunstify -t 2000 "Polybars restarted"
+    ##notify-send -t 2000 "Polybars restarted"
 fi
 
 ##killall polybar

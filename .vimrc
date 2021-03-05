@@ -22,7 +22,7 @@ highlight StatusLine gui=reverse guifg=#00bb00 cterm=reverse ctermfg=DarkGreen
 if has('linux')
     " set guifont=Input\ Mono\ Light\ 11
     " set guifont=Cascadia\ Mono\ PL\ 12
-    set guifont=JetBrains\ Mono\ 12
+    set guifont=JetBrains\ Mono\ Light\ 12
 else
     " set guifont=InputMono_Light:h11:cANSI:qDRAFT
     set guifont=Cascadia_Mono:h12:cANSI:qDEFAULT
