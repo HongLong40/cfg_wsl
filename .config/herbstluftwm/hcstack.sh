@@ -1,4 +1,2 @@
 #!/bin/env zsh
-typeset -a hcstack
-hcstack=( $(herbstclient stack | rg "monitor.[0-9]" | sort | awk '{ print $3":"$NF }') )
-echo ${hcstack[1]} " | " ${hcstack[2]}
+herbstclient stack | grep -E -i "monitor.[0-9]" | sed 's/"//g' | sort | awk '{ print "M"$3":T"$NF }' | paste -sd"  "

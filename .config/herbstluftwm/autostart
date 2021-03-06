@@ -189,6 +189,7 @@ hc rule floatplacement=smart
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 
 hc rule class=Galculator    floating=on floatplacement=smart
+hc rule class=Gucharmap     floating=on floatplacement=smart
 hc rule class=gl            floating=on floatplacement=smart
 hc rule class=Lxappearance  floating=on floatplacement=smart
 hc rule class=mpv           floating=on floatplacement=smart
