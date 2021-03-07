@@ -93,6 +93,34 @@ format-offset     =
     label-occupied-padding = 4
 # --}
 
+[module/filesystem]
+# --{
+    type = internal/fs
+
+    ; Mountpoints to display
+    mount-0 = /
+    ;mount-1 = /home
+    ;mount-2 = /var
+
+    ; Seconds to sleep between updates
+    ; Default: 30
+    interval = 600
+
+    ; Display fixed precision values
+    ; Default: false
+    fixed-values = true
+
+    ; Spacing between entries
+    ; Default: 2
+    spacing = 4
+
+    format-mounted = <label-mounted>
+    label-mounted = HDD: %free%
+    format-mounted-font = 2
+    format-mounted-padding = 2
+    format-mounted-underline = #00aaaa
+# --}
+
 [module/xwindow]
 # --{ https://github.com/jaagr/polybar/wiki/Module:-xwindow
     type = internal/xwindow
@@ -102,6 +130,7 @@ format-offset     =
     format-background = ${colors.slate-t}
     format-font       = 3
     format-padding    = 4
+    format-margin     = 4
 # --}
 
 [module/battery]
@@ -193,7 +222,8 @@ format-offset     =
     ; Default: 1
     interval = 3
 
-    label = MEM %percentage_used%% = %mb_used% | %gb_free% | %gb_total%
+    ;label = MEM %percentage_used%% = %mb_used% | %gb_free% | %gb_total%
+    label = MEM %percentage_used%% = %mb_used%
     format-padding = 2
     format-font = 2
     format-underline = #00aa00
@@ -211,13 +241,13 @@ format-offset     =
 # --}
 
 # [module/tagmon]
-# ##{
+# # --{
 #     type = custom/script
 #     interval = 1
 #     exec = ~/.config/herbstluftwm/hcstack.sh
 #     format-font = 2
 #     format-padding = 2
-# ##}
+# # --}
 
 ## ==================================================================== ##
 
@@ -246,7 +276,7 @@ enable-ipc = true
 
 modules-left  = ewmh xwindow
 modules-center = clementine
-modules-right = pulseaudio memory cpu battery cdate
+modules-right = pulseaudio memory cpu battery filesystem cdate
 
 [bar/slate-tray]
 inherit = bar/slate

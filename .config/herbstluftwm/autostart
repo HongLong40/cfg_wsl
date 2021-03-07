@@ -54,6 +54,8 @@ hc keybind XF86AudioMute        spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +1%
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -1%
 
+hc keybind XF86AudioPlay spawn playerctl play-pause
+
 # basic movement in tiling and floating mode
 # focusing clients
 hc keybind $Mod-Left  focus left
@@ -209,18 +211,6 @@ hc unlock
 # or simply:
 hc detect_monitors
 
-if [[ -z $(pgrep -x polybar) ]]; then
-    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload slate &
-    done
-else    
-    polybar-msg cmd restart
-    dunstify -t 2000 "Polybars restarted"
-    ##notify-send -t 2000 "Polybars restarted"
-fi
+# start polybar panels
+~/.config/polybar/panel.sh
 
-##killall polybar
-
-##for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-##    MONITOR=$m polybar --reload slate &
-##done
