@@ -40,21 +40,21 @@ hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn $terminal # use your $TERMINAL with xterm as fallback
 
-hc keybind $Mod-p spawn rofi -show combi
-hc keybind $Mod-Shift-v spawn $HOME/.config/utils/switchaudio
-hc keybind $Mod-Control-v spawn pavucontrol
-
-hc keybind XF86Calculator spawn galculator
-hc keybind Print spawn flameshot gui
-
-hc keybind $Mod-b spawn opera
-hc keybind $Mod-Shift-b spawn opera --private
-
-hc keybind XF86AudioMute        spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
-hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +1%
-hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -1%
-
-hc keybind XF86AudioPlay spawn playerctl play-pause
+#hc keybind $Mod-p spawn rofi -show combi
+#hc keybind $Mod-Shift-v spawn $HOME/.config/utils/switchaudio
+#hc keybind $Mod-Control-v spawn pavucontrol
+#
+#hc keybind XF86Calculator spawn galculator
+#hc keybind Print spawn flameshot gui
+#
+#hc keybind $Mod-b spawn opera
+#hc keybind $Mod-Shift-b spawn opera --private
+#
+#hc keybind XF86AudioMute        spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+#hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +1%
+#hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -1%
+#
+#hc keybind XF86AudioPlay spawn playerctl play-pause
 
 # basic movement in tiling and floating mode
 # focusing clients

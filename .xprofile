@@ -8,6 +8,8 @@ fi
 
 if [ $DESKTOP_SESSION == "xfce" ]
 then
+    xbindkeys -f $HOME/.xbindkeysrc.xfce4 &
+else
     xbindkeys &
 fi
 
