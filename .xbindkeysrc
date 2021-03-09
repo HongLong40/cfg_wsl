@@ -50,6 +50,11 @@
 "rofi -show combi"
     Mod2+Mod4 + p
 
+# Show rofi-based clipboard
+"rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'"
+    Mod2+Mod4 + v
+
+
 # Open Browser
 "opera"
     Mod2+Mod4 + b
