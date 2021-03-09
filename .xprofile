@@ -14,3 +14,5 @@ else
 fi
 
 ~/.screenlayout/display.sh
+setxkbmap -option compose:ralt
+
