@@ -75,7 +75,7 @@ set tabstop=4 softtabstop=4 smarttab shiftwidth=4 expandtab
 set ignorecase smartcase
 set backspace=indent,eol,start
 "set listchars=eol:¶,tab:>·,trail:~,extends:>,precedes:<,space:⋅
-set listchars=eol:¬,tab:⭾⋅,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:⭾⋅,trail:~,extends:>,precedes:<,space:·
 
 " —-- Folding ----------------------------------------------------------------
 set foldmethod=marker
