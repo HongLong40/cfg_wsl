@@ -10,7 +10,7 @@ configuration {
     // monitor: "primary";
     location: 0;
     // yoffset: 100;
-    terminal: "xfce4-terminal";
+    terminal: "alacritty";
 }
 element-icon {
     size: 1.0em ;

@@ -85,6 +85,10 @@ format-offset     =
     label-active-background = ${colors.slate-t}
     label-active-padding = 4
 
+    label-urgent = %name%
+    label-urgent-background = #ff0000
+    label-urgent-padding = 4
+
     label-empty = %name%
     label-empty-padding = 4
 
@@ -115,7 +119,7 @@ format-offset     =
     spacing = 4
 
     format-mounted = <label-mounted>
-    label-mounted = HDD: %free%
+    label-mounted =  %free%
     format-mounted-font = 2
     format-mounted-padding = 2
     format-mounted-underline = #00aaaa
@@ -182,7 +186,7 @@ format-offset     =
 
     format = <label>
 
-    label = CPU %percentage%%
+    label =  %percentage%%
     format-font = 2
     format-padding = 2
     format-underline = #aa00aa
@@ -223,7 +227,7 @@ format-offset     =
     interval = 3
 
     ;label = MEM %percentage_used%% = %mb_used% | %gb_free% | %gb_total%
-    label = MEM %percentage_used%% = %mb_used%
+    label =  %percentage_used%% = %mb_used%
     format-padding = 2
     format-font = 2
     format-underline = #00aa00

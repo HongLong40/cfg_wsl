@@ -18,7 +18,8 @@ hc emit_hook reload
 xsetroot -solid '#5A8E3A'
 
 run picom
-run nitrogen --restore
+##run nitrogen --restore
+run ~/.fehbg
 run conky --daemonize --pause=1
 run xfce4-power-manager
 run dunst
@@ -159,7 +160,7 @@ hc set frame_border_width 1
 hc set always_show_frame off
 hc set frame_bg_transparent on
 hc set frame_transparent_width 2
-hc set frame_gap 4
+hc set frame_gap 2
 
 hc attr theme.active.color '#AA00AA'
 hc attr theme.normal.color '#454545'
@@ -190,6 +191,11 @@ hc rule floatplacement=smart
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 
+# Clients with fixed tags
+hc rule class=Opera tag=5
+
+
+# floating clients
 hc rule class=Galculator    floating=on floatplacement=smart
 hc rule class=Gucharmap     floating=on floatplacement=smart
 hc rule class=gl            floating=on floatplacement=smart
