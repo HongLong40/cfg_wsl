@@ -38,11 +38,11 @@
 window {
     background-color: @background;
     border:           1;
-    padding:          5;
+    padding:          4 4 4 4;
 }
 mainbox {
-    border:  0;
-    padding: 0;
+    border:  1;
+    padding: 1 10 10 10;
 }
 message {
     border:       1px dash 0px 0px ;
