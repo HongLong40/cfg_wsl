@@ -259,8 +259,8 @@ format-offset     =
 [module/pacman]
 # --{
     type = custom/script
-    interval = 1800
-    exec = checkupdates 2> /dev/null | wc -l
+    interval = 60
+    exec = cat /tmp/pacman_updates.count
     format = <label>
     label =  Updates: %output%
     format-font = 2

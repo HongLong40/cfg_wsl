@@ -7,7 +7,7 @@ configuration {
     show-icons: true;
     scrollbar-width: 0;
     width: 44;
-    // monitor: "primary";
+    monitor: -4;
     location: 0;
     // yoffset: 100;
     terminal: "alacritty";

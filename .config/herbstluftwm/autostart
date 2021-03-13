@@ -28,6 +28,8 @@ run greenclip daemon
 if hc silent new_attr bool my_not_first_autostart ; then
     ## systemctl --user start greenclip.service
     synology-cloud-station-drive autostart &
+    # run checkupdates to initialize /tmp/pacman_updates.count
+    checkupdates 2> /dev/null | wc -l > /tmp/pacman_updates.count
     ## /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
 
@@ -205,6 +207,13 @@ hc unlock
 # or simply:
 hc detect_monitors
 
+# start pacman update monitoring script (used by polybar pacman script module)
+if ! pidof -x "$HOME/.config/polybar/check_pacman_updates.sh" > /dev/null; then
+    "$HOME/.config/polybar/check_pacman_updates.sh" &
+fi
+
+# while [[ ! -f /tmp/pacman_updates.count ]]; do sleep 1; done
+
 # start polybar panels
-~/.config/polybar/panel.sh
+~/.config/polybar/panel.sh &
 
