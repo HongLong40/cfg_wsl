@@ -2,7 +2,7 @@
 
 setopt localoptions
 
-chosen=$(pactl list short sinks | awk '{ print $1,$2,$7 }' | rofi -dmenu -l 5 -location 5 -yoffset -30 -p "🎜 🎚" )
+chosen=$(pactl list short sinks | awk '{ print $1,$2,$7 }' | rofi -dmenu -l 2 -location 3 -width 30 -xoffset -5 -yoffset 30 -p "🎜 🎚" )
 
 typeset -A sink
 sink=( $( echo $chosen | awk '{ print "id",$1,"nm",$2 }' ) )

@@ -81,6 +81,8 @@ format-offset     =
     format = <label-state>
     format-font = 2
 
+    ;label-monitor = %name%
+
     label-active = %name%
     label-active-background = ${colors.slate-t}
     label-active-padding = 4
@@ -174,6 +176,7 @@ format-offset     =
     label-full =  Full
     format-full-font = 2
     format-full-padding = 2
+    format-full-underline = #aaaaaa
 # --}
 
 [module/cpu]
@@ -253,6 +256,30 @@ format-offset     =
 #     format-padding = 2
 # # --}
 
+[module/pacman]
+# --{
+    type = custom/script
+    interval = 1800
+    exec = checkupdates 2> /dev/null | wc -l
+    format = <label>
+    label =   %output% Updates
+    format-font = 2
+    format-padding = 2
+    format-underline = #fa00aa00
+# --}
+
+[module/cfg]
+# --{
+    type = custom/script
+    interval = 60
+    exec = git --git-dir=$HOME/.cfg/ --work-tree=$HOME status --porcelain | wc -l
+    format = <label>
+    label =   %output% Changes
+    format-font = 2
+    format-padding = 2
+    format-underline = #faaa00aa
+# --}
+
 ## ==================================================================== ##
 
 [bar/slate]
@@ -268,6 +295,7 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
 
+wm-name = 
 separator = 
 underline-size = 2
 ;padding-right = 3
@@ -280,7 +308,7 @@ enable-ipc = true
 
 modules-left  = ewmh xwindow
 modules-center = clementine
-modules-right = pulseaudio memory cpu battery filesystem cdate
+modules-right = pulseaudio memory cpu battery filesystem pacman cfg cdate
 
 [bar/slate-tray]
 inherit = bar/slate

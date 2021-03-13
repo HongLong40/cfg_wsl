@@ -2,11 +2,11 @@ configuration {
     modi: "run,window,drun,combi";
     combi-modi: "window,drun";
     display-combi: "🗔 ";
-    theme: "solarized";
+    theme: "current";
     font: "Cascadia Code PL 12";
     show-icons: true;
     scrollbar-width: 0;
-    width: 40;
+    width: 44;
     // monitor: "primary";
     location: 0;
     // yoffset: 100;
