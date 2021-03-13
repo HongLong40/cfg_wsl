@@ -9,7 +9,8 @@ set clipboard^=unnamed,unnamedplus
 " ----------------------------------------------------------------------------
 " --- Color scheme, highlights, font and cursors -----------------------------
 colorscheme industry
-highlight Normal guifg=#cfcfcf guibg=#010e17
+"highlight Normal guifg=#cfcfcf guibg=#010e17
+highlight Normal guifg=#cfcfcf guibg=#01101c
 highlight LineNr guifg=DarkYellow
 highlight CursorLineNr gui=none guifg=red cterm=none ctermfg=darkred
 highlight CursorLine guibg=Grey30 cterm=none ctermbg=DarkBlue

@@ -72,8 +72,8 @@
     Mod2 + XF86Calculator
 
 # Settings Manager
-"xfce4-settings-manager"
-    Mod2+Mod4 + i
+#"xfce4-settings-manager"
+#    Mod2+Mod4 + i
 
 ## Audio Settings
 

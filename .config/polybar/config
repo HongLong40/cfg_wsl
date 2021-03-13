@@ -3,7 +3,7 @@
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
 margin-top = 0
-margin-bottom = 0
+margin-bottom = 1
 
 [settings]
 ;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
@@ -262,7 +262,7 @@ format-offset     =
     interval = 1800
     exec = checkupdates 2> /dev/null | wc -l
     format = <label>
-    label =   %output% Updates
+    label =  Updates: %output%
     format-font = 2
     format-padding = 2
     format-underline = #fa00aa00
@@ -274,7 +274,7 @@ format-offset     =
     interval = 60
     exec = git --git-dir=$HOME/.cfg/ --work-tree=$HOME status --porcelain | wc -l
     format = <label>
-    label =   %output% Changes
+    label =  Changes: %output%
     format-font = 2
     format-padding = 2
     format-underline = #faaa00aa
