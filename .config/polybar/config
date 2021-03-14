@@ -256,16 +256,29 @@ format-offset     =
 #     format-padding = 2
 # # --}
 
-[module/pacman]
+#[module/pacman]
+## --{
+#    type = custom/script
+#    interval = 60
+#    exec = cat /tmp/pacman_updates.count
+#    format = <label>
+#    label =  Updates: %output%
+#    format-font = 2
+#    format-padding = 2
+#    format-underline = #fa00aa00
+## --}
+
+[module/pacman_ipc]
 # --{
-    type = custom/script
-    interval = 60
-    exec = cat /tmp/pacman_updates.count
-    format = <label>
-    label =  Updates: %output%
+    type = custom/ipc
+    hook-0 = echo " Updates: Pending..."
+    hook-1 = echo " Updates: $(cat /tmp/pacman_updates.count)"
+    format = <output>
+    output =  Updates: %output%
     format-font = 2
     format-padding = 2
     format-underline = #fa00aa00
+    initial = 1
 # --}
 
 [module/cfg]
@@ -308,7 +321,7 @@ enable-ipc = true
 
 modules-left  = ewmh xwindow
 modules-center = clementine
-modules-right = pulseaudio memory cpu battery filesystem pacman cfg cdate
+modules-right = pulseaudio memory cpu battery filesystem pacman_ipc cfg cdate
 
 [bar/slate-tray]
 inherit = bar/slate
