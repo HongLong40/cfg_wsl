@@ -17,9 +17,14 @@ echo $(date "+%Y-%m-%d %T") Polling Interval = $polling_interval s >> $LOG
 
 typeset last_update_count=0
 typeset curr_update_count
+typeset counter=1
 
 # Wait for 15s, as polybars need to start up
-sleep 15
+while [[ (! -f /tmp/polybar_started) && $counter -le 15 ]]; do
+    echo file not found $counter
+    sleep 1
+    (( counter++ ))
+done
 
 while true; do
     curr_update_count=$(checkupdates 2> /dev/null | wc -l | tee /tmp/pacman_updates.count)
@@ -27,7 +32,7 @@ while true; do
     echo $(date "+%Y-%m-%d %T") Current Update Count: ..$curr_update_count.. >> $LOG
     if [[ $last_update_count != $curr_update_count ]]; then
         last_update_count=$curr_update_count
-        polybar-msg hook pacman_ipc 2
+        polybar-msg hook pacman_ipc 2 || true
         dunstify -t 2000 "$curr_update_count New Pacman Updates Available"
     fi
     sleep $polling_interval
