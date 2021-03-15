@@ -17,13 +17,12 @@ hc emit_hook reload
 
 xsetroot -solid '#5A8E3A'
 
-run picom
+##run picom
 ##run nitrogen --restore
-run ~/.fehbg
 run conky --daemonize --pause=1
-run xfce4-power-manager
-run dunst
-run greenclip daemon
+##run xfce4-power-manager
+##run dunst
+##run greenclip daemon
 
 if hc silent new_attr bool my_not_first_autostart ; then
     ## systemctl --user start greenclip.service

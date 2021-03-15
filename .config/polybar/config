@@ -271,7 +271,7 @@ format-offset     =
 [module/pacman_ipc]
 # --{
     type = custom/ipc
-    hook-0 = echo " Updates: Pending..."
+    hook-0 = echo " Updates: N/A"
     hook-1 = echo " Updates: $(cat /tmp/pacman_updates.count)"
     format = <output>
     output =  Updates: %output%

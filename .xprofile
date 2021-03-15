@@ -1,7 +1,7 @@
 #!/bin/bash
 env > ~/env.txt
 
-if [ $DESKTOP_SESSION == "herbstluftwm" ]
+if [ $DESKTOP_SESSION != "xfce" ]
 then
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
@@ -15,4 +15,8 @@ fi
 
 ~/.screenlayout/display.sh
 setxkbmap -option compose:ralt
-
+~/.fehbg
+picom &
+dunst &
+greenclip daemon &
+xfce4-power-manager &
