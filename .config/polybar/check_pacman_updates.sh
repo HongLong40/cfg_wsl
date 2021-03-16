@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-typeset CONFIG=$HOME/.config/polybar/check_pacman_updates.config 
-typeset LOG=$HOME/.config/polybar/check_pacman_updates.log
-
 # check if script is already running
 for pid in $(pidof -x check_pacman_updates.sh); do
     if [ $pid != $$ ]; then
@@ -11,13 +8,16 @@ for pid in $(pidof -x check_pacman_updates.sh); do
     fi
 done
 
-typeset polling_interval=$(grep "polling_interval" $CONFIG | awk '{ print $2 }')
+typeset CONFIG=$HOME/.config/polybar/check_pacman_updates.config 
+typeset LOG=$HOME/.config/polybar/check_pacman_updates.log
+typeset -i polling_interval=$(grep "polling_interval" $CONFIG | awk '{ print $2 }')
+
 echo $(date "+%Y-%m-%d %T") Starting $0 with PID = $$ > $LOG
 echo $(date "+%Y-%m-%d %T") Polling Interval = $polling_interval s >> $LOG
 
-typeset last_update_count=0
-typeset curr_update_count
-typeset counter=1
+typeset -i last_update_count=0
+typeset -i curr_update_count
+typeset -i counter=1
 
 # Wait for 15s, as polybars need to start up
 while [[ (! -f /tmp/polybar_started) && $counter -le 15 ]]; do
@@ -33,7 +33,7 @@ while true; do
     if [[ $last_update_count != $curr_update_count ]]; then
         last_update_count=$curr_update_count
         polybar-msg hook pacman_ipc 2 || true
-        dunstify -t 2000 "$curr_update_count New Pacman Updates Available"
+        dunstify -t 5000 "$curr_update_count New Pacman Updates Available"
     fi
     sleep $polling_interval
 done
