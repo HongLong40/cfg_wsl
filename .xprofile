@@ -16,7 +16,7 @@ fi
 ~/.screenlayout/display.sh
 setxkbmap -option compose:ralt
 ~/.fehbg
-picom &
+picom -b --experimental-backends
 dunst &
 greenclip daemon &
 xfce4-power-manager &

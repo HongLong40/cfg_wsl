@@ -10,10 +10,14 @@ done
 
 typeset CONFIG=$HOME/.config/polybar/check_pacman_updates.config 
 typeset LOG=$HOME/.config/polybar/check_pacman_updates.log
-typeset -i polling_interval=$(grep "polling_interval" $CONFIG | awk '{ print $2 }')
+
+typeset -A pbc
+pbc=( $(<$CONFIG) )
+
+##typeset -i polling_interval=$(grep "polling_interval" $CONFIG | awk '{ print $2 }')
 
 echo $(date "+%Y-%m-%d %T") Starting $0 with PID = $$ > $LOG
-echo $(date "+%Y-%m-%d %T") Polling Interval = $polling_interval s >> $LOG
+echo $(date "+%Y-%m-%d %T") Polling Interval = ${pbc[poll_interval]} >> $LOG
 
 typeset -i last_update_count=0
 typeset -i curr_update_count
@@ -32,8 +36,8 @@ while true; do
     echo $(date "+%Y-%m-%d %T") Current Update Count: ..$curr_update_count.. >> $LOG
     if [[ $last_update_count != $curr_update_count ]]; then
         last_update_count=$curr_update_count
-        polybar-msg hook pacman_ipc 2 || true
+        polybar-msg hook ${pbc[hook_name]} ${pbc[hook_id]} || true
         dunstify -t 5000 "$curr_update_count New Pacman Updates Available"
     fi
-    sleep $polling_interval
+    sleep ${pbc[poll_interval]}
 done
