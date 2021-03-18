@@ -13,10 +13,24 @@ else
     xbindkeys &
 fi
 
+# set screen layout
 ~/.screenlayout/display.sh
-setxkbmap -option compose:ralt
-~/.fehbg
+
+# run picom
 picom -b --experimental-backends
+
+# set compose key to Left_Alt
+setxkbmap -option compose:ralt
+
+# set wallpapers
+~/.fehbg
+
+# start notification daemon
 dunst &
+
+# start clipboard history manager
+
 greenclip daemon &
+
+# start power manager
 xfce4-power-manager &
