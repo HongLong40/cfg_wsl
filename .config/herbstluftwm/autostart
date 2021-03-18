@@ -182,7 +182,7 @@ hc rule floatplacement=smart
 
 # Clients with fixed tags
 hc rule class=Opera tag=5
-
+hc rule class=org.remmina.Remmina tag=9
 
 # floating clients
 hc rule class=Galculator    floating=on floatplacement=smart
