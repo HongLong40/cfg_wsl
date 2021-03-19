@@ -200,7 +200,7 @@ gaps outer 0
 ##exec --no-startup-id picom
 ##exec --no-startup-id dunst
 ##exec_always --no-startup-id xbindkeys
-exec --no-startup-id conky --daemonize --pause=1
+exec --no-startup-id conky --config=/home/edward/.config/conky/conky_i3.conf --daemonize --pause=1
 exec_always --no-startup-id ~/.config/polybar/panel.sh
 ##exec_always --no-startup-id nitrogen --restore
 
