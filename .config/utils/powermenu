@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+chosen=$(echo "Log Out\nReboot\nPower Off" | rofi -dmenu -i -p "⏻ " -theme-str 'entry { enabled: false;}' -l 3 -width 15 -location 0 -yoffset -150)
+
+case $chosen in
+    "Log Out")
+        herbstclient quit
+        ;;
+    "Reboot")
+        reboot
+        ;;
+    "Power Off")
+        poweroff
+        ;;
+esac
+

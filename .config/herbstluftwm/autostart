@@ -42,6 +42,7 @@ terminal=alacritty
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
+hc keybind Mod4-Shift-x spawn ~/.config/utils/powermenu
 hc keybind $Mod-Return spawn $terminal # use your $TERMINAL with xterm as fallback
 
 ## Application keybindings have been moved to xbindkeys
