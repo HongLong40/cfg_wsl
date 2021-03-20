@@ -131,7 +131,7 @@ format-offset     =
 # --{ https://github.com/jaagr/polybar/wiki/Module:-xwindow
     type = internal/xwindow
     label = %title%
-    label-maxlen = 80
+    label-maxlen = 120
 
     format-background = ${colors.slate-t}
     format-font       = 3
@@ -329,7 +329,7 @@ enable-ipc = true
 ;cursor-scroll = ns-resize
 
 modules-left  = ewmh xwindow
-modules-center = clementine
+modules-center =
 modules-right = pulseaudio memory cpu battery filesystem pacman_ipc cfg cdate
 
 [bar/slate-tray]
