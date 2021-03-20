@@ -293,6 +293,15 @@ format-offset     =
     format-underline = #faaa00aa
 # --}
 
+[module/hlwm-monitor0]
+# --{
+    type = custom/script
+    exec = /home/edward/.config/polybar/hlwm-monitor0.sh
+    tail = true
+    scroll-up = herbstclient use_index -1 --skip-visible &
+    scroll-down = herbstclient use_index +1 --skip-visible &
+# --}
+
 ## ==================================================================== ##
 
 [bar/slate]
