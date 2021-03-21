@@ -54,6 +54,10 @@
 "rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'"
     Mod2+Mod4 + v
 
+# Lock Screen
+"betterlockscreen -l"
+    Shift + Mod2+Mod4 + z
+
 
 # Open Browser
 "opera"

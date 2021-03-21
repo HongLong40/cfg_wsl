@@ -1,17 +1,22 @@
 #!/bin/bash
 env > ~/env.txt
 
-if [ $DESKTOP_SESSION != "xfce" ]
-then
-    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-fi
+#if [ $DESKTOP_SESSION != "xfce" ]
+#then
+#    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#fi
+#
+#if [ $DESKTOP_SESSION == "xfce" ]
+#then
+#    xbindkeys -f $HOME/.xbindkeysrc.xfce4 &
+#else
+#    xbindkeys &
+#fi
 
-if [ $DESKTOP_SESSION == "xfce" ]
-then
-    xbindkeys -f $HOME/.xbindkeysrc.xfce4 &
-else
-    xbindkeys &
-fi
+xsetroot -solid '#19202A'
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+xbindkeys &
 
 # set screen layout
 ~/.screenlayout/display.sh
@@ -34,3 +39,6 @@ greenclip daemon &
 
 # start power manager
 xfce4-power-manager &
+
+# set numlock
+numlockx &
