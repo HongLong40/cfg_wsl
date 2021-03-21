@@ -14,7 +14,8 @@ picom -b --experimental-backends
 setxkbmap -option compose:ralt
 
 # set wallpapers
-~/.fehbg
+# ~/.fehbg
+nitrogen --restore &
 
 # start notification daemon
 dunst &

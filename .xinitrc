@@ -27,4 +27,5 @@ if [ -d "$xinitdir" ]; then
     done
 fi
 
-exec herbstluftwm
+# start herbstluftwm. The --locked option eliminates flickering while wm starts
+exec herbstluftwm --locked
