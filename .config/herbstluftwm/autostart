@@ -15,7 +15,7 @@ run() {
 
 hc emit_hook reload
 
-#xsetroot -solid '#19202A'
+xsetroot -solid '#19202A'
 
 ##run picom
 ##run nitrogen --restore
