@@ -18,7 +18,7 @@ typeset LOG=$HOME/.config/polybar/check_pacman_updates.log
 write_log() { echo $(date "+%Y-%m-%d %T") "$@" >> $LOG }
 
 # initialize log
-rm $LOG
+rm -f $LOG
 write_log "Starting $0 with PID = $$"
 
 # load parameters
