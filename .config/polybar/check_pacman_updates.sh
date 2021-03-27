@@ -57,3 +57,6 @@ do
 
     sleep ${pbc[poll_interval]}
 done
+
+# vim:ft=zsh:
+

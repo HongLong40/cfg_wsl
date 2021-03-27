@@ -6,6 +6,8 @@ set nocompatible
 "set nomodeline
 set clipboard^=unnamed,unnamedplus
 
+syntax on
+
 " ----------------------------------------------------------------------------
 " --- Color scheme, highlights, font and cursors -----------------------------
 colorscheme industry
