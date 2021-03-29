@@ -35,4 +35,14 @@ then
 fi
 
 # start herbstluftwm. The --locked option eliminates flickering while wm starts
-exec herbstluftwm --locked
+exec herbstluftwm --locked 
+
+# Here Xfce is kept as default
+#session=${1:-herbstluftwm}
+#
+#case $session in
+#    herbstluftwm      ) exec herbstluftwm --locked;;
+#    qtile             ) exec qtile;;
+#    # No known session, try to run it as command
+#    *                 ) exec $1;;
+#esac
