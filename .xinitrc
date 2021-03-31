@@ -36,6 +36,7 @@ fi
 
 # start herbstluftwm. The --locked option eliminates flickering while wm starts
 exec herbstluftwm --locked 
+#exec i3
 
 # Here Xfce is kept as default
 #session=${1:-herbstluftwm}
