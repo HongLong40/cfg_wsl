@@ -35,6 +35,7 @@ then
 fi
 
 # start herbstluftwm. The --locked option eliminates flickering while wm starts
+#exec qtile start 
 exec herbstluftwm --locked 
 #exec i3
 

@@ -17,19 +17,10 @@ hc emit_hook reload
 
 xsetroot -solid '#19202A'
 
-##run picom
-##run nitrogen --restore
 run conky --daemonize --pause=1
-##run xfce4-power-manager
-##run dunst
-##run greenclip daemon
 
 if hc silent new_attr bool my_not_first_autostart ; then
-    ## systemctl --user start greenclip.service
     synology-cloud-station-drive autostart &
-    # run checkupdates to initialize /tmp/pacman_updates.count
-    # checkupdates 2> /dev/null | wc -l > /tmp/pacman_updates.count &
-    ## /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 fi
 
 # remove all existing keybindings
@@ -94,7 +85,7 @@ hc keybind $Mod-Mod1-Left  shift_to_monitor -1
 hc set default_frame_layout 1
 
 # tags
-tag_names=( "main" "2" "3" "4" "www" "6" "7" "media" "remote" )
+tag_names=( "main" "two" "three" "four" "www" "six" "seven" "media" "remote" )
 #tag_names=( {1..9} )
 tag_keys=( {1..9} 0 )
 

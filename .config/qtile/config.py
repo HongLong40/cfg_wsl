@@ -116,9 +116,9 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
+    font='Roboto',
+    fontsize=14,
+    padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -127,7 +127,11 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    borderwidth=1,
+                    rounded=False,
+                    hide_unused=True
+                    ),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
@@ -139,10 +143,13 @@ screens = [
                 widget.TextBox("default config", name="default"),
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Sep(),
+                widget.Battery(charge_char='',discharge_char='',format='{char} {percent:2.0%} {hour:02d}:{min:02d}'),
+                widget.Sep(),
+                widget.Clock(format='%a | %H:%M | %Y-%m-%d'),
                 widget.QuickExit(),
             ],
-            24,
+            30,
         ),
     ),
     Screen(
@@ -164,7 +171,7 @@ screens = [
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
                 widget.QuickExit(),
             ],
-            24,
+            30,
         ),
     ),
 ]
