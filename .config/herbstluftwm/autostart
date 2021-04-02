@@ -202,3 +202,5 @@ hc detect_monitors
 # start polybar panels
 ~/.config/polybar/panel.sh &
 
+# set focus to first monitor
+hc focus_monitor 0

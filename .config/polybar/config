@@ -91,7 +91,7 @@ format-offset     =
     label-urgent-background = #ff0000
     label-urgent-padding = 4
 
-    label-empty = %name%
+    label-empty = %{F#bbbbbb}%name%%{F-}
     label-empty-padding = 4
 
     label-occupied = %name%
@@ -123,7 +123,8 @@ format-offset     =
     format-mounted = <label-mounted>
     label-mounted =  %free%
     format-mounted-font = 2
-    format-mounted-padding = 2
+    format-mounted-padding = 1
+    format-mounted-margin = 1
     format-mounted-underline = #00aaaa
 # --}
 
@@ -136,7 +137,7 @@ format-offset     =
     format-background = ${colors.slate-t}
     format-font       = 3
     format-padding    = 4
-    format-margin     = 4
+    format-margin     = 2
 # --}
 
 [module/battery]
@@ -164,18 +165,21 @@ format-offset     =
     time-format = %H:%M
 
     label-charging = %{F#00FF00} %{F-} %percentage%% (%time%)
-    format-charging-padding = 2
+    format-charging-padding = 1
+    format-charging-margin = 1
     format-charging-font = 2
     format-charging-underline = #00ff00
 
     label-discharging = %{F#FF0000} %{F-}  %percentage%% (%time%)
-    format-discharging-padding = 2
+    format-discharging-padding = 1
+    format-discharging-margin = 1
     format-discharging-font = 2
     format-discharging-underline = #ff0000
 
     label-full =  Full
     format-full-font = 2
-    format-full-padding = 2
+    format-full-padding = 1
+    format-full-margin = 1
     format-full-underline = #aaaaaa
 # --}
 
@@ -191,7 +195,8 @@ format-offset     =
 
     label =  %percentage%%
     format-font = 2
-    format-padding = 2
+    format-padding = 1
+    format-margin = 1
     format-underline = #aa00aa
 # --}
 
@@ -210,13 +215,15 @@ format-offset     =
 
     format-volume = <label-volume>
     label-volume =  %percentage%%
-    format-volume-padding = 2
+    format-volume-padding = 1
+    format-volume-margin = 1
     format-volume-font = 2
     format-volume-underline = #aa00aa
 
     label-muted =  muted
     label-muted-foreground = #aaa
-    format-muted-padding = 2
+    format-muted-padding = 1
+    format-muted-margin = 1
     format-muted-font = 2
     format-muted-underline = #00aaaa
 # --}
@@ -231,7 +238,8 @@ format-offset     =
 
     ;label = MEM %percentage_used%% = %mb_used% | %gb_free% | %gb_total%
     label =  %percentage_used%% = %mb_used%
-    format-padding = 2
+    format-padding = 1
+    format-margin = 1
     format-font = 2
     format-underline = #00aa00
 # --}
@@ -276,7 +284,8 @@ format-offset     =
     format = <output>
     output =  Updates: %output%
     format-font = 2
-    format-padding = 2
+    format-padding = 1
+    format-margin = 1
     format-underline = #fa00aa00
     initial = 1
 # --}
@@ -289,7 +298,8 @@ format-offset     =
     format = <label>
     label =  Changes: %output%
     format-font = 2
-    format-padding = 2
+    format-padding = 1
+    format-margin = 1
     format-underline = #faaa00aa
 # --}
 

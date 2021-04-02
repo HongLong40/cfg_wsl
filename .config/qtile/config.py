@@ -100,7 +100,13 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack='#d75f5f'),
+    #layout.Columns(border_focus_stack='#d75f5f'),
+    layout.Columns(
+        border_focus='#aa00aa',
+        border_focus_stack='#aa00aa',
+        border_wdth=1,
+        margin=1
+        ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -116,64 +122,43 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='Roboto',
-    fontsize=14,
+    font='Roboto Bold',
+    fontsize=12,
     padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(
-                    borderwidth=1,
-                    rounded=False,
-                    hide_unused=True
-                    ),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Sep(),
-                widget.Battery(charge_char='',discharge_char='',format='{char} {percent:2.0%} {hour:02d}:{min:02d}'),
-                widget.Sep(),
-                widget.Clock(format='%a | %H:%M | %Y-%m-%d'),
-                widget.QuickExit(),
-            ],
-            30,
+        top=bar.Gap(
+#            [
+#                widget.CurrentLayout(),
+#                widget.GroupBox(
+#                    borderwidth=1,
+#                    rounded=False,
+#                    hide_unused=True
+#                    ),
+#                widget.Prompt(),
+#                widget.WindowName(),
+#                widget.Chord(
+#                    chords_colors={
+#                        'launch': ("#ff0000", "#ffffff"),
+#                    },
+#                    name_transform=lambda name: name.upper(),
+#                ),
+#                widget.TextBox("default config", name="default"),
+#                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+#                widget.Systray(),
+#                widget.Sep(),
+#                widget.Battery(charge_char='',discharge_char='',format='{char} {percent:2.0%} {hour:02d}:{min:02d}'),
+#                widget.Sep(),
+#                widget.Clock(font='Roboto Bold',fontsize=12,format='%a | %H:%M | %Y-%m-%d'),
+#                widget.QuickExit(),
+#            ],
+            0,
         ),
     ),
-    Screen(
-        top=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
-            ],
-            30,
-        ),
-    ),
+    Screen()
 ]
 
 # Drag floating layouts.
