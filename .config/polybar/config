@@ -300,7 +300,7 @@ format-offset     =
     format-font = 2
     format-padding = 1
     format-margin = 1
-    format-underline = #faaa00aa
+    format-underline = #aaaa00
 # --}
 
 [module/hlwm-monitor0]
