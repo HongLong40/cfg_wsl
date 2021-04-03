@@ -2,9 +2,24 @@
 
 chosen=$(echo "Log Out\nReboot\nPower Off" | rofi -dmenu -i -p "⏻ " -theme-str 'entry { enabled: false;}' -l 3 -width 15 -location 0 -yoffset -150)
 
+WM=$(wmctrl -m | grep "Name:" | awk '{ print $2 }')
+
 case $chosen in
     "Log Out")
-        herbstclient quit
+        case $WM in
+            "herbstluftwm")
+                herbstclient quit
+                break
+                ;;
+            "i3")
+                i3-msg exit
+                break
+                ;;
+            "qtile")
+                qtile cmd-obj -o cmd -f shutdown
+                break
+                ;;
+        esac
         ;;
     "Reboot")
         reboot
