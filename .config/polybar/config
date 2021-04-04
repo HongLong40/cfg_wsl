@@ -132,7 +132,7 @@ format-offset     =
 # --{ https://github.com/jaagr/polybar/wiki/Module:-xwindow
     type = internal/xwindow
     label = %title%
-    label-maxlen = 120
+    label-maxlen = 100
 
     format-background = ${colors.slate-t}
     format-font       = 3
