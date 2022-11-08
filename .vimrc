@@ -8,14 +8,22 @@ set clipboard^=unnamed,unnamedplus
 
 syntax on
 
+if system('uname -r') =~ "microsoft"
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+endif
+
+
 " ----------------------------------------------------------------------------
 " --- Color scheme, highlights, font and cursors -----------------------------
 colorscheme industry
 "highlight Normal guifg=#cfcfcf guibg=#010e17
-highlight Normal guifg=#cfcfcf guibg=#01101c
+highlight Normal guifg=#cfcfcf guibg=#01101c ctermbg=234
 highlight LineNr guifg=DarkYellow
 highlight CursorLineNr gui=none guifg=red cterm=none ctermfg=darkred
-highlight CursorLine guibg=Grey15 cterm=none ctermbg=0
+highlight CursorLine guibg=Grey15 cterm=none ctermbg=18
 highlight iCursor guifg=bg guibg=red
 highlight Folded  term=standout ctermfg=11 ctermbg=8 guifg=DarkRed guibg=DarkGrey
 highlight MatchParen guibg=DarkBlue
@@ -70,7 +78,7 @@ set statusline+=\
 " --- Settings (general) -----------------------------------------------------
 set splitbelow splitright
 set title
-set showmode
+set noshowmode
 set autoindent
 set number relativenumber
 set showmatch
@@ -86,7 +94,7 @@ set foldmarker=--{,--}
 
 " --- Abbreviations and Ligatures --------------------------------------------
 iabbrev ... …
-iabbrev -> ➔
+iabbrev -> → 
 iabbrev bbb [ ]
 iabbrev bvb [✓]
 
@@ -105,3 +113,6 @@ if has('gui_running')
     set guioptions-=b     " bottom scroll bar
     set guioptions-=h     " only calculate bottom scroll size of current line
 endif
+
+set ttymouse=sgr
+set mouse=a
