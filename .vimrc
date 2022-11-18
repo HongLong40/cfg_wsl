@@ -23,7 +23,7 @@ colorscheme industry
 highlight Normal guifg=#cfcfcf guibg=#01101c ctermbg=234
 highlight LineNr guifg=DarkYellow
 highlight CursorLineNr gui=none guifg=red cterm=none ctermfg=darkred
-highlight CursorLine guibg=Grey15 cterm=none ctermbg=18
+highlight CursorLine guibg=Grey15 cterm=none ctermbg=239 ctermfg=227
 highlight iCursor guifg=bg guibg=red
 highlight Folded  term=standout ctermfg=11 ctermbg=8 guifg=DarkRed guibg=DarkGrey
 highlight MatchParen guibg=DarkBlue

@@ -70,6 +70,7 @@ HISTORY_IGNORE="(ls*|ll*|cd*|cls|exit|poweroff|reboot)"
 # ad-hoc aliases
 alias cal='cal --week'
 alias cfg='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias rm='trash -v'
 # add push-line-or-edit function
 # bindkey '^B' push-line-or-edit
 cd
