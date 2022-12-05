@@ -47,6 +47,12 @@ set scrolloff=5
 let g:rainbow_active = 1
 let g:sql_type_default = 'sqlserver'
 
+" ----------------------------------------------------------------------------
+"   netrw defaults (no banner, tree list)
+" ----------------------------------------------------------------------------
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
 set timeoutlen=2000
 set printoptions=left:20pt,right:20pt
 
