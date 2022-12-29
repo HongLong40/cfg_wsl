@@ -81,10 +81,10 @@ nnoremap <silent> <leader>rt :RainbowToggle
 nnoremap <silent> <leader>sc :set invlist
 nnoremap <silent> <leader>w  :w
 nnoremap <silent> <leader>nh :nohls
-nnoremap <silent> <leader>td :s/\[ \]/\[✓\]/j
-nnoremap <silent> <leader>tu :s/\[✓\]/\[ \]/
-vnoremap <silent> <leader>td :s/\[ \]/\[✓\]/
-vnoremap <silent> <leader>tu :s/\[✓\]/\[ \]/
+nnoremap <silent> <leader>td :s/\[ \]/\[✓\]/:nohlsearchj
+nnoremap <silent> <leader>tu :s/\[✓\]/\[ \]/:nohlsearch
+vnoremap <silent> <leader>td :s/\[ \]/\[✓\]/:nohlsearch
+vnoremap <silent> <leader>tu :s/\[✓\]/\[ \]/:nohlsearch
 vnoremap <silent> <leader>p "_dP
 
 " Auto-complete () {} [] "" ''
@@ -98,8 +98,8 @@ inoremap ' ''<Left>
 " Abbreviations and Ligatures
 iabbrev ... …
 iabbrev -> → 
-iabbrev bbb [ ]
-iabbrev bvb [✓]
+inoreabbrev bbb [ ]
+inoreabbrev bvb [✓]
 
 " Global variables
 let g:rainbow_active = 1
