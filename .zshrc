@@ -49,6 +49,10 @@ zle_highlight+=('paste:none')
 prompt edward yellow
 echo -ne '\e[4 q' # Use underline shape cursor on startup.
 
+# source key bindings and completion for fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 cd
 pfetch
 fortune

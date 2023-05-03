@@ -75,6 +75,7 @@ let mapleader = " "
 " Note: <leader>gb has an intentional trailing space as part of its
 "       mapping
 nnoremap <leader>gb :ls:b 
+nnoremap <leader>ls :ls
 nnoremap <silent> <leader>cc :set invcursorcolumn
 nnoremap <silent> <leader>nn :set invnumber invrelativenumber
 nnoremap <silent> <leader>rt :RainbowToggle
