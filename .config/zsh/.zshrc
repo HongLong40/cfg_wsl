@@ -5,6 +5,11 @@ fpath=("$ZSH" "$fpath[@]")
 autoload -Uz promptinit; promptinit
 autoload -Uz check_invoice
 
+# autoload custom functions
+local -a aufn=( $(<${ZSH}/autoload) )
+autoload -Uz ${aufn}
+unset aufn
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
