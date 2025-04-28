@@ -65,3 +65,4 @@ source /usr/share/fzf/completion.zsh
 cd
 pfetch
 fortune
+ln -sf /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/

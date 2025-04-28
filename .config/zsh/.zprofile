@@ -26,5 +26,6 @@ export BC_ENV_ARGS=${HOME}/.config/bc/bcrc
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export USERNAME
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
