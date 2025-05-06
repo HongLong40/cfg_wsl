@@ -29,3 +29,11 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
+# Set up WSLg Wayland socket
+# This is needed for Wayland applications to work in WSLg
+# This is a workaround for the fact that WSLg does not create the Wayland socket
+# in the correct location for WSL2
+# The socket is created in /mnt/wslg/runtime-dir/wayland-0*
+# and needs to be symlinked to /run/user/${UID}/
+# This is done in the .zprofile file so that it is done before any other commands are run
+ln -fs /mnt/wslg/runtime-dir/wayland-0* /run/user/${UID}/
