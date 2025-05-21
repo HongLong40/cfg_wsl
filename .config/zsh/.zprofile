@@ -28,12 +28,10 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 export EXA_COLORS='uu=35'
 
 # Set misc. variables
-export BC_ENV_ARGS=${HOME}/.config/bc/bcrc
 export PATH="/usr/lib/ccache/bin/:$PATH"
 export USERNAME
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export MANROFFOPT="-c"    # ensures that man pages interpret color codes correctly when using bat as the pager
 
 # Set up WSLg Wayland socket
 # This is needed for Wayland applications to work in WSLg
