@@ -1,4 +1,8 @@
-# .zshrc
+# .zshrc for WSL
+
+# 2025-05-22
+#   - disable autosuggestions. Nice to have, but not really necessary as we have fzf + history
+#   - use the $prompt_cursor_mode variable to set the cursor shape
 
 ZSH="/usr/share/zsh/custom"
 fpath=("${ZSH}/autoload.d" "$fpath[@]")
@@ -14,7 +18,7 @@ autoload -Uz add-zsh-hook
 
 # Load prompt and cursor
 prompt edward yellow
-echo -ne '\e[4 q'               # Use underline shape cursor on startup.
+echo -ne "\e[${prompt_cursor_mode[viins]} q"    # Use underline shape cursor on startup.
 
 # Autoload custom functions
 source  ${ZSH}/autoload.zsh
@@ -33,12 +37,11 @@ setopt nobeep                   # turn off beeping in the terminal
 export BC_ENV_ARGS=${XDG_CONFIG_HOME}/bc/bcrc
 export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/rg/ripgreprc
 
-
 # Source key bindings and completion for fzf
 source <(fzf --zsh)
 
 # Autosuggestions plugin
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Highlighting plugin -- must be sourced last per author's instructions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
