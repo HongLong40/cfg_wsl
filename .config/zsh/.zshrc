@@ -39,7 +39,7 @@ export RIPGREP_CONFIG_PATH=${XDG_CONFIG_HOME}/rg/ripgreprc
 
 # Source key bindings and completion for fzf; set option
 source <(fzf --zsh)
-export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#2dd4bf"
+export FZF_DEFAULT_OPTS="--style=minimal --border --color=hl:#00ffff"
 
 # Autosuggestions plugin
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
